@@ -30,7 +30,7 @@ spec:
         resources:
           requests:
             cpu: 600m
-            memory: 2048Mi
+            memory: 1536Mi
         volumeMounts:
         - mountPath: /data
           name: data
