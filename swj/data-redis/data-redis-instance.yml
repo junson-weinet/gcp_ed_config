@@ -18,12 +18,11 @@ spec:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
             preference:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: cloud.google.com/gke-nodepool
-                  operator: In
-                  values:
-                  - default-pool
+              matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                - default-pool
               topologyKey: topology.kubernetes.io/zone
       containers:
       - name: ed-redis
