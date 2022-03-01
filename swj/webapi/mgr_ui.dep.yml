@@ -94,7 +94,7 @@ metadata:
   namespace: api-swj
 spec:
   maxReplicas: 10
-  minReplicas: 1
+  minReplicas: 5
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
