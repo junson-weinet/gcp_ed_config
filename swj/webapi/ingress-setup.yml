@@ -8,8 +8,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: gke.gttest13.com
-    http:
+   - http:
       paths:
       - path: /activies/([a-z]{2}-[a-z]{2}/|swagger/?)
         pathType: Prefix
