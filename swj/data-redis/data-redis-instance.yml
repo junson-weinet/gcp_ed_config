@@ -23,7 +23,6 @@ spec:
                 operator: In
                 values:
                 - default-pool
-              topologyKey: topology.kubernetes.io/zone
       containers:
       - name: ed-redis
         image: redis:latest
