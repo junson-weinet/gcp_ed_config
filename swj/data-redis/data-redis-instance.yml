@@ -14,15 +14,14 @@ spec:
         app: ed-redis
     spec:
       affinity:
-        podAffinity:
+        nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
+            nodeSelectorTerms:
+            - matchExpressions:
               - key: cloud.google.com/gke-nodepool
-                operator: In
+                operator: NotIn
                 values:
-                - default-pool
-            topologyKey: kubernetes.io/hostname
+                - prepare-pool
       containers:
       - name: ed-redis
         image: redis:latest
