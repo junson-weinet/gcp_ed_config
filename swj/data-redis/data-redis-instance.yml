@@ -1,0 +1,61 @@
+# kubectl label node [node] tag=redis
+# kubectl taint node [node] tag=redis:NoExecute
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ed-redis
+  namespace: redis-swj
+spec:
+  selector:
+    matchLabels:
+      app: ed-redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ed-redis
+    spec:
+      containers:
+      - name: ed-redis
+        image: redis:latest
+        imagePullPolicy: IfNotPresent
+        command:
+          - redis-server
+          - "/redis-master/redis.conf"
+        env:
+        - name: MASTER
+          value: "true"
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            cpu: 600m
+            memory: 2048Mi
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        - mountPath: /redis-master
+          name: config
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: redis-storage-claim
+      - name: config
+        configMap:
+          name: redis-config
+          items:
+          - key: redis-config
+            path: redis.conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ed-redis-svc
+  namespace: redis-swj
+spec:
+  type: ClusterIP
+  selector:
+    app: ed-redis
+  ports:
+    - port: 6379
+      targetPort: 6379
