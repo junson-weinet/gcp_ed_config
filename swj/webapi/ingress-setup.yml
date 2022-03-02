@@ -8,7 +8,8 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-   - http:
+    - host: gke.gttest13.com
+      http:
       paths:
       - path: /activies/([a-z]{2}-[a-z]{2}/|swagger/?)
         pathType: Prefix
@@ -87,4 +88,3 @@ spec:
             name: edco-swj-svc
             port:
               number: 8080
- 
