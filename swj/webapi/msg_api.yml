@@ -125,4 +125,4 @@ spec:
     kind: Deployment
     name: msg-api
   updatePolicy:
-    updateMode: "Off"
+    updateMode: "Auto"
