@@ -113,3 +113,16 @@ spec:
     kind: Deployment
     name: msg-api
   targetCPUUtilizationPercentage: 95
+---
+apiVersion: autoscaling/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: vpa-msg
+  namespace: api-swj
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: msg-api
+  updatePolicy:
+    updateMode: "Off"
