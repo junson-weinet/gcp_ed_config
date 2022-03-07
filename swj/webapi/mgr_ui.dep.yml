@@ -32,7 +32,6 @@ spec:
           resources:          ##CPU内存限制
             limits:
               cpu: 500m
-              memory: 600Mi
             requests:
               cpu: 250m
           image: gcr.io/rd-test-64435/sg_nginx:v22.2.24.1

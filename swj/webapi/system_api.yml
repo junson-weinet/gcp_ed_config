@@ -25,7 +25,6 @@ spec:
         resources:          ##CPU内存限制
           limits:
             cpu: 300m
-            memory: 600Mi
           requests:
             cpu: 200m
         image: gcr.io/rd-test-64435/system_api:v22.3.1.3    #镜像地址
