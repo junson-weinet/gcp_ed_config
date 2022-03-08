@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: msg-api
-  replicas: 1
+  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -24,7 +24,7 @@ spec:
       - name: msg-api       #镜像名称
         resources:          ##CPU内存限制
           limits:
-            cpu: 300m
+            cpu: 400m
           requests:
             cpu: 200m
         image: gcr.io/rd-test-64435/msg_api:v22.3.7.2    #镜像地址
@@ -105,7 +105,7 @@ metadata:
   namespace: api-swj
 spec:
   maxReplicas: 10
-  minReplicas: 1
+  minReplicas: 3
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
