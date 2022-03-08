@@ -29,11 +29,6 @@ spec:
             path: sa_credentials.json
       containers:
         - name: gcs-k8s-nginx
-          resources:          ##CPU内存限制
-            limits:
-            cpu: 600m
-          requests:
-            cpu: 300m
           image: gcr.io/rd-test-64435/sg_nginx:v22.2.24.1
           imagePullPolicy: Always
           volumeMounts:
