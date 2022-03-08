@@ -112,11 +112,9 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
-  - hosts:
-    - swj-app.gttest13.com
-    secretName: sg-swj-app-tls
+  - secretName: sg-swj-app-tls
   rules:
-  - host: swj.gttest13.com
+  - host: swj-app.gttest13.com
     http:
       paths:
       - path: /user/([a-z]{2}-[a-z]{2}/|swagger/?)
@@ -140,7 +138,7 @@ spec:
             name: sg-swj-svc
             port:
               number: 8080
-  - host: swj-app.gttest13.com
+  - host: swj.gttest13.com
     http:
       paths:
       - path: /user/([a-z]{2}-[a-z]{2}/|swagger/?)
