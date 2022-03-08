@@ -1,0 +1,90 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: edco-xam-ingress
+  namespace: api-xam
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /activies/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: activies-svc
+            port:
+              number: 10001
+      - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: cash-svc
+            port:
+              number: 10001
+      - path: /credit/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: credit-svc
+            port:
+              number: 10001
+      - path: /message/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: msg-svc
+            port:
+              number: 10001
+      - path: /product/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: product-svc
+            port:
+              number: 10001
+      - path: /report/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: report-svc
+            port:
+              number: 10001
+      - path: /site/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: site-svc
+            port:
+              number: 10001
+      - path: /statistics/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: statistics-svc
+            port:
+              number: 10001
+      - path: /system/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: system-svc
+            port:
+              number: 10001
+      - path: /user/([a-z]{2}-[a-z]{2}/|swagger/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: user-svc
+            port:
+              number: 10001
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: edco-xam-svc
+            port:
+              number: 8080
+ 
