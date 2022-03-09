@@ -106,7 +106,7 @@ metadata:
   namespace: api-swj
 spec:
   type: ExternalName
-  externalName: ovcash.goweinet.com
+  externalName: ovcash.czzrn9ip.com
   ports:
   - port: 16001
     targetPort: 16001

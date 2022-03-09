@@ -105,7 +105,7 @@ metadata:
   namespace: api-swj
 spec:
   type: ExternalName
-  externalName: ovproduct.goweinet.com
+  externalName: ovproduct.czzrn9ip.com
   ports:
   - port: 14001
     targetPort: 14001

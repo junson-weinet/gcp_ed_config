@@ -105,7 +105,7 @@ metadata:
   namespace: api-swj
 spec:
   type: ExternalName
-  externalName: ovsite.goweinet.com
+  externalName: ovsite.czzrn9ip.com
   ports:
   - port: 11003
     targetPort: 11003

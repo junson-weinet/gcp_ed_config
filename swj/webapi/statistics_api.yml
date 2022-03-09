@@ -105,7 +105,7 @@ metadata:
   namespace: api-swj
 spec:
   type: ExternalName
-  externalName: ovstatistics.goweinet.com
+  externalName: ovstatistics.czzrn9ip.com
   ports:
   - port: 15001
     targetPort: 15001

@@ -105,7 +105,7 @@ metadata:
   namespace: api-swj
 spec:
   type: ExternalName
-  externalName: ovactivity.goweinet.com
+  externalName: ovactivity.czzrn9ip.com
   ports:
   - port: 17001
     targetPort: 17001

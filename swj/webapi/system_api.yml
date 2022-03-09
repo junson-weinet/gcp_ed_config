@@ -105,7 +105,7 @@ metadata:
   namespace: api-swj
 spec:
   type: ExternalName
-  externalName: ovsystem.goweinet.com
+  externalName: ovsystem.czzrn9ip.com
   ports:
   - port: 19001
     targetPort: 19001
