@@ -107,8 +107,8 @@ spec:
   type: ExternalName
   externalName: ovsystem.czzrn9ip.com
   ports:
-  - port: 19001
-    targetPort: 19001
+  - port: 19003
+    targetPort: 19003
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

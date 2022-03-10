@@ -107,8 +107,8 @@ spec:
   type: ExternalName
   externalName: ovproduct.czzrn9ip.com
   ports:
-  - port: 14001
-    targetPort: 14001
+  - port: 14003
+    targetPort: 14003
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

@@ -107,8 +107,8 @@ spec:
   type: ExternalName
   externalName: ovactivity.czzrn9ip.com
   ports:
-  - port: 17001
-    targetPort: 17001
+  - port: 17003
+    targetPort: 17003
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

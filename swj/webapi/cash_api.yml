@@ -108,8 +108,8 @@ spec:
   type: ExternalName
   externalName: ovcash.czzrn9ip.com
   ports:
-  - port: 16001
-    targetPort: 16001
+  - port: 16003
+    targetPort: 16003
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

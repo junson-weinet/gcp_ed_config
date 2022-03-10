@@ -107,8 +107,8 @@ spec:
   type: ExternalName
   externalName: ovstatistics.czzrn9ip.com
   ports:
-  - port: 15001
-    targetPort: 15001
+  - port: 15003
+    targetPort: 15003
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

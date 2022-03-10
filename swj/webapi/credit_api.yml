@@ -107,8 +107,8 @@ spec:
   type: ExternalName
   externalName: ovcredit.czzrn9ip.com
   ports:
-  - port: 13001
-    targetPort: 13001
+  - port: 13003
+    targetPort: 13003
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
