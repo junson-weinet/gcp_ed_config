@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\swj\\webapi"
+    "\\swj",
+    "\\swj\\webapi",
+    "\\swj\\webapi\\conf"
   ],
-  "SelectedNode": "\\swj",
+  "SelectedNode": "\\swj\\webapi\\msg_api.yml",
   "PreviewInSolutionExplorer": false
 }
