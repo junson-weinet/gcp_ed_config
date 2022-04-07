@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agile-conf
+  namespace: api-swj
+  labels:
+    app: agile-conf
+spec:
+  selector:
+    matchLabels:
+      app: agile-conf
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: agile-conf
+    spec:
+      containers:
+        - name: agile-conf
+          image: "kklldog/agile_config:latest"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: "Logging__LogLevel__Default"
+              value: "Debug"
+            - name: "Logging__LogLevel__System"
+              value: "Debug"
+            - name: "Logging__LogLevel__Microsoft"
+              value: "Debug"
+            - name: "TZ"
+              value: "Asia/Shanghai"
+            - name: "adminConsole"
+              value: "true"
+            - name: "db__provider"
+              value: "sqlserver"
+            - name: "db__conn"
+              valueFrom:
+                secretKeyRef:
+                  name: ed-appsettings
+                  key: agile-conn
+          ports:
+            - name: ui
+              containerPort: 5000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: ui
+          readinessProbe:
+            httpGet:
+              path: /
+              port: ui
+          resources:
+            limits:
+              cpu: 500m
+              memory: 600Mi
+            requests:
+              cpu: 250m
+              memory: 300Mi
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: agile-svc         
+  namespace: api-swj       
+spec:
+  selector:
+    app: agile-conf       
+  type: ClusterIP
+  ports:
+  - protocol: TCP   
+    port: 5000  
+    targetPort: 5000
+    name: ui
