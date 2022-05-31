@@ -18,6 +18,20 @@ spec:
               name: activies-svc
               port:
                 number: 10001
+        - path: /callcenter/
+          pathType: Prefix
+          backend:
+            service:
+                name: callcenter-svc
+            port:
+                number: 10001
+        - path: /maintain/
+          pathType: Prefix
+          backend:
+            service:
+                name: maintain-svc
+            port:
+                number: 10001
         - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
           pathType: Prefix
           backend:
