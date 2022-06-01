@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
-  #- secretName: swj-agile-tls
+  - secretName: swj-agile-tls
   # Set domain
   rules:
     - host: agile.gttest13.com
@@ -20,7 +20,7 @@ spec:
             service:
               name: agile-svc
               port:
-                number: 10001
+                number: 5000
     #- host: edco.gttest13.com
     - http:
         paths:
