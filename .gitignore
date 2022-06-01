@@ -1,2 +1,3 @@
 secret.yml
 *.sqlite-journal
+/.vs/gcp_ed_config3
