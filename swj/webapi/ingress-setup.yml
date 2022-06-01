@@ -8,17 +8,17 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    #- host: agile.gttest13.com
-    #- http:
-    #    paths:
-    #    - path: /
-    #      pathType: Prefix
-    #      backend:
-    #        service:
-    #          name: agile-svc
-    #          port:
-    #            number: 5000
-    #- host: edco.gttest13.com
+    - host: agile.gttest13.com
+    - http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: agile-svc
+              port:
+                number: 5000
+    - host: edco.gttest13.com
     - http:
         paths:
         - path: /activies/([a-z]{2}-[a-z]{2}/|swagger/?)
