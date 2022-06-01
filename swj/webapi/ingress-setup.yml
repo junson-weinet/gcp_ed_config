@@ -12,7 +12,7 @@ spec:
   # Set domain
   rules:
   - host: agile.gttest13.com
-  - http:
+    http:
       paths:
       - path: /
         pathType: Prefix
@@ -21,8 +21,8 @@ spec:
             name: agile-svc
             port:
               number: 5000
-  #- host: edco.gttest13.com
-  - http:
+  - host: edco.gttest13.com
+    http:
       paths:
       - path: /activies/([a-z]{2}-[a-z]{2}/|swagger/?)
         pathType: Prefix
