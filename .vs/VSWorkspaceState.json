@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\swj",
-    "\\swj\\webapi",
-    "\\swj\\webapi\\conf"
+    "\\swj\\webapi"
   ],
-  "SelectedNode": "\\swj\\webapi\\msg_api.yml",
+  "SelectedNode": "\\swj\\webapi\\ingress-setup.yml",
   "PreviewInSolutionExplorer": false
 }
