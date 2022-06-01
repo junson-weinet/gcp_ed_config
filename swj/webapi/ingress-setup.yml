@@ -9,6 +9,7 @@ metadata:
 spec:
   tls:
   - secretName: swj-agile-tls
+  # Set domain
   rules:
     - host: agile.gttest13.com
     - http:
