@@ -8,10 +8,10 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
-  - hostes:
+  - hosts:
     - agile.gttest13.com
     secretName: swj-agile-tls
-  - hostes:
+  - hosts:
     - gke.gttest13.com
     secretName: swj-gke-tls 
   # Set domain
