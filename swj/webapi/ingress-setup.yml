@@ -21,7 +21,7 @@ spec:
             name: agile-svc
             port:
               number: 5000
-  - host: edco.gttest13.com
+  - host: gke.gttest13.com
     http:
       paths:
       - path: /activies/([a-z]{2}-[a-z]{2}/|swagger/?)
