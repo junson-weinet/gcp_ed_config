@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: otc-ingress
+  namespace: otcapi
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: "otc.gttest13.com" 
+    http:
+      paths:
+      - path: /cash/([a-z]{2}-[a-z]{2}/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: otccash-svc
+            port:
+              number: 60001
+      - path: /user/([a-z]{2}-[a-z]{2}/?)
+        pathType: Prefix
+        backend:
+          service:
+            name: otcuser-svc
+            port:
+              number: 60001

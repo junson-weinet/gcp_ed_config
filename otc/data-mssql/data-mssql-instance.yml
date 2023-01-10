@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: otc-cloudsql-svc
+  namespace: sqlserver-otc
+subsets:
+  - addresses:
+      - ip: 35.240.160.239
+    ports:
+      - port: 1433
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otc-cloudsql-svc
+  namespace: sqlserver-otc
+spec:
+  type: ClusterIP
+  ports:
+  - port: 1433
+    targetPort: 1433
