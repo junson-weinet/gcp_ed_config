@@ -1,9 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\otc",
+    "\\otc\\data-mssql",
+    "\\otc\\data-redis",
+    "\\otc\\data-redis\\conf",
+    "\\otc\\webapi",
     "\\swj",
-    "\\swj\\webapi"
+    "\\swj\\webapi",
+    "\\xam\\data-redis",
+    "\\xam\\data-redis\\conf"
   ],
-  "SelectedNode": "\\swj\\webapi\\statistics_api.yml",
+  "SelectedNode": "\\otc\\webapi\\ingress-setup.yml",
   "PreviewInSolutionExplorer": false
 }
