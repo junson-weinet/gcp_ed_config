@@ -6,11 +6,11 @@
     "\\otc\\data-redis",
     "\\otc\\data-redis\\conf",
     "\\otc\\webapi",
+    "\\otc\\webapi\\conf",
     "\\swj",
     "\\swj\\webapi",
-    "\\xam\\data-redis",
-    "\\xam\\data-redis\\conf"
+    "\\swj\\webapi\\conf"
   ],
-  "SelectedNode": "\\otc\\webapi\\ingress-setup.yml",
+  "SelectedNode": "\\otc\\webapi\\conf\\otcapi-conf.yml",
   "PreviewInSolutionExplorer": false
 }
