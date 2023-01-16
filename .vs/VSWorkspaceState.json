@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\otc",
-    "\\otc\\data-mssql",
-    "\\otc\\data-redis",
-    "\\otc\\data-redis\\conf",
     "\\otc\\webapi",
     "\\otc\\webapi\\conf",
     "\\swj",
+    "\\swj\\data-mssql",
     "\\swj\\webapi",
-    "\\swj\\webapi\\conf"
+    "\\swj\\webapi\\conf",
+    "\\xam",
+    "\\xam\\data-mssql"
   ],
-  "SelectedNode": "\\otc\\webapi\\conf\\otcapi-conf.yml",
+  "SelectedNode": "\\otc\\data-mssql\\data-mssql-instance.yml",
   "PreviewInSolutionExplorer": false
 }
