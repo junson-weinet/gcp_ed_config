@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: otcapi
+  name: redis-otc
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: redis-config
-  namespace: otcapi
+  namespace: redis-otc
 data:
   redis-config: |
     protected-mode yes
