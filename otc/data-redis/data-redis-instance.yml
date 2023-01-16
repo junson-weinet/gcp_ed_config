@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ed-redis
-  namespace: redis-otc
+  namespace: otcapi
 spec:
   selector:
     matchLabels:
@@ -58,7 +58,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ed-redis-svc
-  namespace: redis-otc
+  namespace: otcapi
 spec:
   type: ClusterIP
   selector:
