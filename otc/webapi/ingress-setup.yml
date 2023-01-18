@@ -17,11 +17,11 @@ spec:
           service:
             name: otccash-svc
             port:
-              number: 60001
+              number: 10001
       - path: /user/([a-z]{2}-[a-z]{2}/|swagger/?)
         pathType: Prefix
         backend:
           service:
             name: otcuser-svc
             port:
-              number: 60001
+              number: 10001
