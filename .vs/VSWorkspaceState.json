@@ -2,7 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\otc",
-    "\\otc\\data-mssql",
     "\\otc\\data-redis",
     "\\otc\\data-redis\\conf",
     "\\otc\\webapi",
