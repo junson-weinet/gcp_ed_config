@@ -11,14 +11,14 @@ spec:
   - host: "otc.gttest13.com" 
     http:
       paths:
-      - path: /cash/([a-z]{2}-[a-z]{2}/?)
+      - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
         pathType: Prefix
         backend:
           service:
             name: otccash-svc
             port:
               number: 60001
-      - path: /user/([a-z]{2}-[a-z]{2}/?)
+      - path: /user/([a-z]{2}-[a-z]{2}/|swagger/?)
         pathType: Prefix
         backend:
           service:
