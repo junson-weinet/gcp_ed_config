@@ -55,7 +55,7 @@ spec:
         - name: "ASPNETCORE_ENVIRONMENT"    #ASPNETCORE
           value: "Staging"
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
-          value: "User"
+          value: "user"
         - name: "SYS_SITE" #设置站台ID
           value: "DEMO"
         - name: "AgileConfig__name"    

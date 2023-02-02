@@ -53,7 +53,7 @@ spec:
         - name: "ASPNETCORE_ENVIRONMENT"    #ASPNETCORE
           value: "Staging"
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
-          value: "Cash"
+          value: "cash"
         - name: "AgileConfig__name"    
           value: "client_cash"
         - name: "SYS_SITE" #设置站台ID
