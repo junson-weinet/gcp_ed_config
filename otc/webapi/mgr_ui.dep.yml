@@ -23,7 +23,7 @@ spec:
       volumes:
       - name: config-volume
         secret:
-          secretName: sg-app-bucket-secret
+          secretName: otc-co-bucket-secret
           items:
           - key: config_json
             path: sa_credentials.json
@@ -34,7 +34,7 @@ spec:
               cpu: 500m
             requests:
               cpu: 250m
-          image: gcr.io/rd-test-64435/sg_nginx:v22.2.24.1
+          image: gcr.io/rd-test-64435/otc_nginx:v23.2.4.1
           imagePullPolicy: Always
           volumeMounts:
           - name: config-volume
