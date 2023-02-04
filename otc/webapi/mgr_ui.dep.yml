@@ -34,7 +34,7 @@ spec:
               cpu: 500m
             requests:
               cpu: 250m
-          image: gcr.io/rd-test-64435/otc_pay_ui:v23.2.4.1
+          image: gcr.io/rd-test-64435/sg_nginx:v22.2.24.1
           imagePullPolicy: Always
           volumeMounts:
           - name: config-volume
