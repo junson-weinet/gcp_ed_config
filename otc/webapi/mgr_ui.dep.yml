@@ -34,7 +34,7 @@ spec:
               cpu: 500m
             requests:
               cpu: 250m
-          image: gcr.io/rd-test-64435/sg_nginx:v22.2.24.1
+          image: gcr.io/rd-test-64435/otc_pay_ui:v23.2.4.1
           imagePullPolicy: Always
           volumeMounts:
           - name: config-volume
@@ -55,7 +55,7 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: ["sh", "-c", "gcsfuse -o allow_other --implicit-dirs swj-co /etc/nginx/conf.d && ln -s /etc/nginx/conf.d/ui /usr/share/nginx/ui && sleep 5 && nginx -s reload"]
+                command: ["sh", "-c", "gcsfuse -o allow_other --implicit-dirs otc-co /etc/nginx/conf.d && ln -s /etc/nginx/conf.d/ui /usr/share/nginx/ui && sleep 5 && nginx -s reload"]
             preStop:
               exec:
                 command: ["sh", "-c", "fusermount -u /etc/nginx/conf.d"]
