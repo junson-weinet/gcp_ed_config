@@ -2,15 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\otc",
-    "\\otc\\data-redis",
-    "\\otc\\data-redis\\conf",
     "\\otc\\webapi",
     "\\swj",
-    "\\swj\\webapi",
-    "\\swj\\webapi\\conf",
-    "\\xam",
-    "\\xam\\data-mssql"
+    "\\xam"
   ],
-  "SelectedNode": "\\otc\\webapi\\user_api.yml",
+  "SelectedNode": "\\otc\\webapi\\bgtasks.yml",
   "PreviewInSolutionExplorer": false
 }
