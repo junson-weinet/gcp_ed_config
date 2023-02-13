@@ -73,7 +73,7 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: ed-appsettings           #配置文件名称
+          secretName: bgtasks-appsettings           #配置文件名称
       - name: varlog
         hostPath:
           path: /var/log
