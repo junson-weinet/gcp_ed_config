@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\otc",
-    "\\otc\\webapi",
-    "\\swj",
-    "\\xam"
+    "\\otc\\webapi"
   ],
-  "SelectedNode": "\\otc\\webapi\\bgtasks.yml",
+  "SelectedNode": "\\otc\\webapi\\client_ui.dep.yml",
   "PreviewInSolutionExplorer": false
 }
