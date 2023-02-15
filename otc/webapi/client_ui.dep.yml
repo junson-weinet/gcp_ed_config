@@ -80,7 +80,7 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: hpa-otcco
+  name: hpa-otcclient
   namespace: otcapi
 spec:
   maxReplicas: 10
@@ -94,7 +94,7 @@ spec:
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: vpa-otcco
+  name: vpa-otcclient
   namespace: otcapi
 spec:
   targetRef:
