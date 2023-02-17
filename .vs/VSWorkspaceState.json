@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\otc",
-    "\\otc\\webapi"
+    "\\otc\\data-redis",
+    "\\otc\\webapi",
+    "\\swj",
+    "\\swj\\webapi"
   ],
-  "SelectedNode": "\\otc\\webapi\\client_ui.dep.yml",
+  "SelectedNode": "\\otc\\data-redis\\data-redis-instance.yml",
   "PreviewInSolutionExplorer": false
 }
