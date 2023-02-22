@@ -32,6 +32,13 @@ spec:
             name: bgtasks-svc
             port:
               number: 10001
+      - path: /hub/
+        pathType: Prefix
+        backend:
+          service:
+            name: otcuser-svc
+            port:
+              number: 10001
       - path: /
         pathType: Prefix
         backend:
