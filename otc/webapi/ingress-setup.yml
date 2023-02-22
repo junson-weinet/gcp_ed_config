@@ -6,6 +6,17 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippets: |
+      location / {
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header Connection "upgrade";
+        proxy_cache_bypass $http_upgrade;
+        }
 spec:
   rules:
   - host: "otc.gttest13.com" 
@@ -30,6 +41,13 @@ spec:
         backend:
           service:
             name: bgtasks-svc
+            port:
+              number: 10001
+      - path: /hub/
+        pathType: Prefix
+        backend:
+          service:
+            name: otcuser-svc
             port:
               number: 10001
       - path: /
