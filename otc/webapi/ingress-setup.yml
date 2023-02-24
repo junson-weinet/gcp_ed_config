@@ -66,4 +66,11 @@ spec:
           service:
             name: otcclient-ui-svc
             port:
-              number: 8080   
+              number: 8080 
+      - path: /hub/
+        pathType: Prefix
+        backend:
+          service:
+            name: otcuser-svc
+            port:
+              number: 10001
