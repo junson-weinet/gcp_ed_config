@@ -57,7 +57,7 @@ spec:
             name: otcco-ui-svc
             port:
               number: 8080   
-  - host: "client.gttest13.com" 
+  - host: "otcclient.gttest13.com" 
     http:
       paths:
       - path: /
