@@ -5,7 +5,7 @@ metadata:
   namespace: otcapi
 subsets:
   - addresses:
-      - ip: 35.240.160.239
+      - ip: 192.168.51.234
     ports:
       - port: 1433
 ---
