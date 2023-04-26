@@ -39,7 +39,7 @@ spec:
                   key: agile-conn
           ports:
             - name: ui
-              containerPort: 5100
+              containerPort: 5000
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -69,6 +69,6 @@ spec:
   type: NodePort
   ports:
   - protocol: TCP   
-    port: 5100  
-    targetPort: 5100
+    port: 5000  
+    targetPort: 5000
     name: ui
