@@ -2,7 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\otc",
-    "\\otc\\webapi"
+    "\\otc\\data-mssql",
+    "\\otc\\data-mssql\\conf",
+    "\\otc\\data-redis",
+    "\\otc\\webapi",
+    "\\otc\\webapi\\conf"
   ],
+  "SelectedNode": "\\otc\\webapi\\cash_api.yml",
   "PreviewInSolutionExplorer": false
 }
