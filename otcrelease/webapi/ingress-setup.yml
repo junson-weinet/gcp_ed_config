@@ -19,7 +19,7 @@ metadata:
         }
 spec:
   rules:
-  - host: "otc.cdweinet.com" 
+  - host: "otc.t72yiq.com" 
     http:
       paths:
       - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
@@ -57,7 +57,7 @@ spec:
             name: otcco-ui-svc
             port:
               number: 8080   
-  - host: "otcclient.cdweinet.com" 
+  - host: "otcclient.t72yiq.com" 
     http:
       paths:
       - path: /
