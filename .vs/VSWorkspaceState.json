@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
-    "",
     "\\otc",
-    "\\otc\\webapi",
     "\\otc\\webapi\\conf",
-    "\\otc_release"
+    "\\otc_release\\data-mssql",
+    "\\otc_release\\data-mssql\\conf",
+    "\\otc_release\\webapi"
   ],
-  "SelectedNode": "\\otc\\webapi\\ingress-setup.yml",
   "PreviewInSolutionExplorer": false
 }
