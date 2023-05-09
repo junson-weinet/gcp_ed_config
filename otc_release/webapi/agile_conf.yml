@@ -45,6 +45,9 @@ spec:
             httpGet:
               path: /
               port: ui
+            initialDelaySeconds: 180   ##启动后延时多久开始运行检测
+            periodSeconds: 120
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /
