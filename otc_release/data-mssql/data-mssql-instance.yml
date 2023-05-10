@@ -5,7 +5,7 @@ metadata:
   namespace: otcrelease
 subsets:
   - addresses:
-      - ip: 34.87.46.208
+      - ip: 10.106.224.4
     ports:
       - port: 1433
 ---
