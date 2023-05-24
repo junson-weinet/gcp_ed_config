@@ -114,20 +114,3 @@ spec:
     port: 10002  
     targetPort: 10002
     name: newthrift
-  - protocol: TCP   
-    port: 10003 
-    targetPort: 10003
-    name: oldthrift
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ovsystem-svc
-  namespace: edapi
-spec:
-  type: ExternalName
-  externalName: ovsystem.goweinet.com
-  ports:
-  - port: 19001
-    targetPort: 19001

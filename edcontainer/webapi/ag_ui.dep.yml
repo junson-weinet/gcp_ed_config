@@ -86,30 +86,4 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/name: edag-ui
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: hpa-edag-ui
-  namespace: edapi
-spec:
-  maxReplicas: 10
-  minReplicas: 1
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: edag-ui
-  targetCPUUtilizationPercentage: 95
----
-apiVersion: autoscaling.k8s.io/v1
-kind: VerticalPodAutoscaler
-metadata:
-  name: vpa-edag-ui
-  namespace: edapi
-spec:
-  targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: edag-ui
-  updatePolicy:
-    updateMode: "Off"
+

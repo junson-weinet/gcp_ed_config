@@ -86,30 +86,4 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/name: edco-ui
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: hpa-edco-ui
-  namespace: edapi
-spec:
-  maxReplicas: 10
-  minReplicas: 1
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: edco-ui
-  targetCPUUtilizationPercentage: 95
----
-apiVersion: autoscaling.k8s.io/v1
-kind: VerticalPodAutoscaler
-metadata:
-  name: vpa-edco-ui
-  namespace: edapi
-spec:
-  targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: edco-ui
-  updatePolicy:
-    updateMode: "Off"
+
