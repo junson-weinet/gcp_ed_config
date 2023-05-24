@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\otc\\data-mssql",
-    "\\otc\\webapi",
+    "\\edcontainer",
+    "\\edcontainer\\webapi",
+    "\\otc",
     "\\otc\\webapi\\conf",
-    "\\otc_release",
+    "\\otc\\webapi\\mq",
     "\\otc_release\\data-mssql",
     "\\otc_release\\data-mssql\\conf",
-    "\\otc_release\\data-redis",
     "\\otc_release\\webapi",
     "\\otc_release\\webapi\\conf"
   ],
-  "SelectedNode": "\\otc_release\\webapi\\agile_conf.yml",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
