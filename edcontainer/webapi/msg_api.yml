@@ -72,20 +72,20 @@ spec:
       - name: varlibdockercontainers
         hostPath:
           path: /var/lib/docker/containers
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: msg-api
-  namespace: edapi
-spec:
-  maxReplicas: 10
-  minReplicas: 1
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: msg-api
-  targetCPUUtilizationPercentage: 95
+# ---
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: msg-api
+#   namespace: edapi
+# spec:
+#   maxReplicas: 10
+#   minReplicas: 1
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: msg-api
+#   targetCPUUtilizationPercentage: 95
 ---
 #定义对外访问的服务名字和端口
 apiVersion: v1
