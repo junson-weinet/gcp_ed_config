@@ -3,14 +3,8 @@
     "",
     "\\edcontainer",
     "\\edcontainer\\webapi",
-    "\\otc",
-    "\\otc\\webapi\\conf",
-    "\\otc\\webapi\\mq",
-    "\\otc_release\\data-mssql",
-    "\\otc_release\\data-mssql\\conf",
-    "\\otc_release\\webapi",
-    "\\otc_release\\webapi\\conf"
+    "\\otc\\webapi"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\edcontainer\\webapi\\activity_api.yml",
   "PreviewInSolutionExplorer": false
 }

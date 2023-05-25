@@ -52,8 +52,6 @@ spec:
           value: "Staging"
         - name: "AgileConfig__name"    
           value: "client_backgroundtasks"
-        - name: "AgileConfig__appId"    
-          value: "backgroundTasks"
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
           mountPath: /app/appsettings.json
@@ -68,7 +66,7 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: ed-appsettings           #配置文件名称
+          secretName: ed-backgroundtasks-appsettings           #配置文件名称
       - name: varlog
         hostPath:
           path: /var/log
