@@ -60,7 +60,7 @@ metadata:
   name: ed-redis-svc
   namespace: redis-otc
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: ed-redis
   ports:
