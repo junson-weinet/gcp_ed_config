@@ -23,7 +23,7 @@ metadata:
       proxy_cache_bypass $http_upgrade;
 spec:
   rules:
-  - host: "edco.cdweinet.com"
+  - host: "edco.t72yiq.com"
     http:
       paths:
       - path: /activities/([a-z]{2}-[a-z]{2}/|swagger/?)
