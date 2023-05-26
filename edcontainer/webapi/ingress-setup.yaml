@@ -116,7 +116,7 @@ spec:
           service:
             name: mgrui-svc
             port:
-              number: 9001
+              number: 8080
   - host: "edag.cdweinet.com"
     http:
       paths:
@@ -161,4 +161,4 @@ spec:
           service:
             name: ag-ui-svc
             port:
-              number: 9001
+              number: 8080
