@@ -114,7 +114,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: mgrui-svc
+            name: edco-ui-svc
             port:
               number: 8080
   - host: "edag.cdweinet.com"
