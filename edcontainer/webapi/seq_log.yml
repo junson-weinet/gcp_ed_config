@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seq-log
+  namespace: webapi
+  labels:
+    app: seq-log
+spec:
+  selector:
+    matchLabels:
+      app: seq-log
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: seq-log
+    spec:
+      containers:
+        - name: seq-log
+          image: "datalust/seq:latest"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: "ACCEPT_EULA"
+              value: "Y"
+          ports:
+            - name: ingestion
+              containerPort: 5341
+              protocol: TCP
+            - name: ui
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: ui
+          readinessProbe:
+            httpGet:
+              path: /
+              port: ui
+          volumeMounts:
+          - name: seq-data
+            mountPath: /data
+            subPath: ""
+          resources:
+            limits:
+              cpu: 500m
+              memory: 600Mi
+            requests:
+              cpu: 250m
+              memory: 300Mi
+      volumes:
+      - name: seq-data
+        emptyDir: {}
+---
+#定义对外访问的服务名字和端口
+apiVersion: v1
+kind: Service
+metadata:
+  name: seq-svc           #服务名字
+  namespace: webapi       #命名空间
+spec:
+  selector:
+    app: seq-log           #        
+  type: NodePort
+  ports:
+  - protocol: TCP   
+    port: 5341  
+    targetPort: 5341
+    name: ingestion
+  - protocol: TCP   
+    port: 5342  
+    targetPort: 80
+    name: ui
+
