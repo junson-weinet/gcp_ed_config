@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: seq-log
-  namespace: webapi
+  namespace: edapi
   labels:
     app: seq-log
 spec:
@@ -57,7 +57,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: seq-svc           #服务名字
-  namespace: webapi       #命名空间
+  namespace: edapi       #命名空间
 spec:
   selector:
     app: seq-log           #        
