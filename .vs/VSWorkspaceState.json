@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\edcontainer",
+    "\\edcontainer\\webapi"
   ],
-  "SelectedNode": "\\C:\\Work\\gcpedk8s",
   "PreviewInSolutionExplorer": false
 }
