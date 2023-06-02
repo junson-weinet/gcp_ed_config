@@ -162,3 +162,13 @@ spec:
             name: edag-ui-svc
             port:
               number: 8080
+  - host: "seq.cdweinet.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: seq-svc
+            port:
+              number: 5342
