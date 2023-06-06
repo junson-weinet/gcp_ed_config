@@ -2,10 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\edcontainer",
-    "\\edcontainer\\data-redis\\conf",
-    "\\edcontainer\\webapi",
-    "\\otc_release\\webapi"
+    "\\edcontainer\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\ingress-setup.yaml",
   "PreviewInSolutionExplorer": false
 }

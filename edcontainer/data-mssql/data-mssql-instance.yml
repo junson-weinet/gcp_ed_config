@@ -5,10 +5,10 @@ metadata:
   namespace: edapi
 subsets:
   - addresses:
-      - ip: 192.168.51.234
+      - ip: 34.87.46.208
     ports:
       - port: 1433
----
+--- 
 apiVersion: v1
 kind: Service
 metadata:

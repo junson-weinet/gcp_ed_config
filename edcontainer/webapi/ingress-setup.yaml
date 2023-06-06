@@ -171,4 +171,4 @@ spec:
           service:
             name: seq-svc
             port:
-              number: 5341
+              number: 5342
