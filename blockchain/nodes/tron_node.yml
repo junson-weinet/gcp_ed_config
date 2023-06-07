@@ -1,0 +1,27 @@
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: "tron-service"
+spec:
+  ports:
+    - name: "node"
+      protocol: "TCP"
+      port: 50051
+      targetPort: 50051 
+    - name: "sodilitynode"
+      protocol: "TCP"
+      port: 50061
+      targetPort: 50061 
+---
+kind: "Endpoints"
+apiVersion: "v1"
+metadata:
+  name: "tron-service" 
+subsets: 
+  - addresses:
+      - ip: "103.233.83.4" 
+    ports:
+      - port: 50051 
+        name: "node"
+      - port: 50061 
+        name: "sodilitynode"

@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chain-redis
+  namespace: redis-chain
+spec:
+  selector:
+    matchLabels:
+      app: chain-redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chain-redis
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: NotIn
+                values:
+                - prepare-pool
+      containers:
+      - name: chain-redis
+        image: redis:latest
+        imagePullPolicy: IfNotPresent
+        command:
+          - redis-server
+          - "/redis-master/redis.conf"
+        env:
+        - name: MASTER
+          value: "true"
+        ports:
+        - containerPort: 6379
+        #resources:
+        #  requests:
+        #    cpu: 550m
+        #    memory: 1024Mi
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        - mountPath: /redis-master
+          name: config
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: redis-storage-claim
+      - name: config
+        configMap:
+          name: redis-config
+          items:
+          - key: redis-config
+            path: redis.conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chain-redis-svc
+  namespace: redis-chain
+spec:
+  type: ClusterIP
+  selector:
+    app: chain-redis
+  ports:
+    - port: 6379
+      targetPort: 6379

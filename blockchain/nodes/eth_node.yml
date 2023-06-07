@@ -1,0 +1,21 @@
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: "ethereum-service"
+spec:
+  ports:
+    - name: "ethnode"
+      protocol: "TCP"
+      port: 8545
+      targetPort: 8545 
+---
+kind: "Endpoints"
+apiVersion: "v1"
+metadata:
+  name: "ethereum-service" 
+subsets: 
+  - addresses:
+      - ip: "103.233.83.3" 
+    ports:
+      - port: 8545 
+        name: "ethnode"

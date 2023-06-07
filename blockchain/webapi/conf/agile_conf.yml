@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agile-conf
+  namespace: token-api
+  labels:
+    app: agile-conf
+spec:
+  selector:
+    matchLabels:
+      app: agile-conf
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: agile-conf
+    spec:
+      containers:
+        - name: agile-conf
+          image: "kklldog/agile_config:latest"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: "TZ"
+              value: "Asia/Shanghai"
+            - name: "adminConsole"
+              value: "true"
+            - name: "db__provider"
+              value: "mysql"
+            - name: "db__conn"
+              valueFrom:
+                secretKeyRef:
+                  name: config_json
+                  key: agile-conn
+          ports:
+            - name: ui
+              containerPort: 5000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: ui
+            initialDelaySeconds: 180
+            periodSeconds: 120
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: ui
+          resources:
+            limits:
+              cpu: 500m
+              memory: 600Mi
+            requests:
+              cpu: 250m
+              memory: 300Mi
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: agile-svc
+  namespace: token-api       
+spec:
+  selector:
+    app: agile-conf       
+  type: NodePort
+  ports:
+  - protocol: TCP   
+    port: 10001  
+    targetPort: 5000
+    name: ui

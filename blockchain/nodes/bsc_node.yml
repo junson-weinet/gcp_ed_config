@@ -1,0 +1,9 @@
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: "bsc-service"
+spec:
+  type: ExternalName
+  externalName: bsc-dataseed1.binance.org
+  ports:
+  - port: 443
