@@ -1,15 +1,15 @@
 ##Deployment部署文件
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
-metadata:
-  name: trade-api        #depolymet名称
+metadata:   
+  name: confirm-worker        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: trade-api       #标签
+    app: confirm-worker       #标签
 spec:
   selector:
     matchLabels:
-      app: trade-api
+      app: confirm-worker
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -19,10 +19,10 @@ spec:
   template:
     metadata:
       labels:
-        app: trade-api       #模板名称必填
+        app: confirm-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: trade-api      #镜像名称
+      - name: confirm-worker      #镜像名称
         #resources:          ##CPU内存限制
         #  limits:
         #    cpu: 500m
@@ -30,7 +30,7 @@ spec:
         #  requests:
         #    cpu: 250m
         #    memory: 300Mi
-        image: gcr.io/rd-test-64435/chain_trade_api:v23.6.8.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        image: gcr.io/rd-test-64435/token_worker_svc:v23.6.8.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -50,24 +50,22 @@ spec:
           timeoutSeconds: 5
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
-          value: "Trade"
+          value: "User"
         args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
           mountPath: /app/appsettings.json
           subPath: appsettings.json
-      imagePullSecrets:
-      - name: img-secret
       volumes:
       - name: secrets
         secret:
-          secretName: trade-settings           #配置文件名称
+          secretName: confirm-worker-settings           #配置文件名称
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
 # metadata:
 #   name: cash-api
-#   namespace: edapi
+#   namespace: token-api
 # spec:
 #   maxReplicas: 10
 #   minReplicas: 1
@@ -81,18 +79,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: trade-svc            #服务名字
+  name: user-svc            #服务名字
   namespace: token-api         #命名空间
 spec:
   selector:
-    app: trade-api           #        
+    app: confirm-worker           #        
   type: NodePort
   ports:
   - protocol: TCP   
     port: 10001  
     targetPort: 10001
-    name: tradeapi
+    name: userapi
   - protocol: TCP   
     port: 9000  
     targetPort: 9000
-    name: thriftsvc
+    name: newthrift

@@ -29,14 +29,14 @@ data:
     rdbcompression yes
     rdbchecksum yes
     dbfilename "dump.rdb"
-    masterauth "1qazxsw2"
+    masterauth "NPNwwZqZ8zxmyysB"
     replica-serve-stale-data yes
     replica-read-only yes
     repl-diskless-sync no
     repl-diskless-sync-delay 5
     repl-disable-tcp-nodelay no
     replica-priority 100
-    requirepass "1qazxsw2"
+    requirepass "NPNwwZqZ8zxmyysB"
     lazyfree-lazy-eviction no
     lazyfree-lazy-expire no
     lazyfree-lazy-server-del no

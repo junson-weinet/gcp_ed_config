@@ -27,10 +27,7 @@ spec:
             - name: "db__provider"
               value: "mysql"
             - name: "db__conn"
-              valueFrom:
-                secretKeyRef:
-                  name: config_json
-                  key: agile-conn
+              value: "database=configcenter;data source=mysql-svc.token-mysql;User Id=token;password=*tWPsSV@W5KSN2m;port=3306"
           ports:
             - name: ui
               containerPort: 5000

@@ -1,15 +1,15 @@
 ##Deployment部署文件
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
-metadata:
-  name: trade-api        #depolymet名称
+metadata:   
+  name: token-proxy        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: trade-api       #标签
+    app: token-proxy       #标签
 spec:
   selector:
     matchLabels:
-      app: trade-api
+      app: token-proxy
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -19,10 +19,10 @@ spec:
   template:
     metadata:
       labels:
-        app: trade-api       #模板名称必填
+        app: token-proxy       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: trade-api      #镜像名称
+      - name: token-proxy      #镜像名称
         #resources:          ##CPU内存限制
         #  limits:
         #    cpu: 500m
@@ -30,44 +30,31 @@ spec:
         #  requests:
         #    cpu: 250m
         #    memory: 300Mi
-        image: gcr.io/rd-test-64435/chain_trade_api:v23.6.8.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        image: gcr.io/rd-test-64435/chain_token_proxy:v23.6.8.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
         ports:           
-        - containerPort: 10001    #对service暴露端口
-        - containerPort: 9000 
-        livenessProbe:   #表示container是否处于live状态。如果LivenessProbe失败，LivenessProbe将会通知kubelet对应的container不健康了。
-                         #随后kubelet将kill掉container，并根据RestarPolicy进行进一步的操作。默认情况下LivenessProbe在第一次检测之前初始化值为Success，
-                         #如果container没有提供LivenessProbe，则也认为是Success；
-          httpGet:
-            path: /hc    #如果没有心跳检测接口就为/
-            scheme: HTTP
-            port: 10001
-          initialDelaySeconds: 180   ##启动后延时多久开始运行检测
-          periodSeconds: 120
-          timeoutSeconds: 5
+        - containerPort: 9090    #对service暴露端口
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
-          value: "Trade"
+          value: "TokenProxy"
         args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
           mountPath: /app/appsettings.json
           subPath: appsettings.json
-      imagePullSecrets:
-      - name: img-secret
       volumes:
       - name: secrets
         secret:
-          secretName: trade-settings           #配置文件名称
+          secretName: token-proxy-settings           #配置文件名称
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
 # metadata:
 #   name: cash-api
-#   namespace: edapi
+#   namespace: token-api
 # spec:
 #   maxReplicas: 10
 #   minReplicas: 1
@@ -81,18 +68,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: trade-svc            #服务名字
+  name: token-proxy-svc            #服务名字
   namespace: token-api         #命名空间
 spec:
   selector:
-    app: trade-api           #        
+    app: token-proxy           #        
   type: NodePort
   ports:
   - protocol: TCP   
-    port: 10001  
-    targetPort: 10001
-    name: tradeapi
-  - protocol: TCP   
-    port: 9000  
-    targetPort: 9000
-    name: thriftsvc
+    port: 9090  
+    targetPort: 9090
+    name: newthrift
