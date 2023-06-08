@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\edcontainer",
+    "\\edcontainer\\data-mssql",
+    "\\edcontainer\\data-mssql\\conf",
     "\\edcontainer\\webapi"
   ],
+  "SelectedNode": "\\edcontainer\\webapi\\user_api.yml",
   "PreviewInSolutionExplorer": false
 }
