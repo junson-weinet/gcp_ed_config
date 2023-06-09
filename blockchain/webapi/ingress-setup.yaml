@@ -54,11 +54,13 @@ kind: Service
 metadata:
   name: ingress-svc
   namespace: token-api
+  labels:
+    ingress: router       #标签
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 80
       protocol: TCP
-  labels:
+  selector:
     ingress: router       #标签
