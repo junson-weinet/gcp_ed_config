@@ -24,7 +24,8 @@ metadata:
       proxy_cache_bypass $http_upgrade;
 spec:
   rules:
-  - http:
+  - host: "*"
+    http:
       paths:
       - path: /metatoken/
         pathType: Prefix
