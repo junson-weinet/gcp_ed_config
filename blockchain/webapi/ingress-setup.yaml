@@ -24,7 +24,7 @@ metadata:
       proxy_cache_bypass $http_upgrade;
 spec:
   rules:
-  - host: "*"
+  - host: "tokenprod.gttest13.com"
     http:
       paths:
       - path: /metatoken/
