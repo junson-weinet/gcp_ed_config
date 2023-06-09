@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: bc-router
   namespace: token-api
+  labels:
+    ingress: router       #标签
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -52,13 +54,11 @@ kind: Service
 metadata:
   name: ingress-svc
   namespace: token-api
-  labels:
-    app.kubernetes.io/name: bc-router
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 80
       protocol: TCP
-  selector:
-    app.kubernetes.io/name: bc-router
+  labels:
+    ingress: router       #标签
