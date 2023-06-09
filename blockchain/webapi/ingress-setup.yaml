@@ -26,20 +26,69 @@ spec:
   rules:
   - http:
       paths:
-      - path: /(metatoken/|token/|mmerchant/|mtoken/|blockchain/|merchant/|order/)
+      - path: /metatoken/
         pathType: Prefix
         backend:
           service:
             name: trade-svc
             port:
               number: 10001
-      - path: /(user/|mgruser/)
+      - path: /token/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 10001
+      - path: /mmerchant/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 10001
+      - path: /mtoken/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 10001
+      - path: /blockchain/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 10001
+      - path: /merchant/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 10001
+      - path: /order/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 10001              
+      - path: /user/
         pathType: Prefix
         backend:
           service:
             name: user-svc
             port:
-              number: 10001      
+              number: 10001
+      - path: /mgruser/
+        pathType: Prefix
+        backend:
+          service:
+            name: user-svc
+            port:
+              number: 10001
       - path: /
         pathType: Prefix
         backend:
