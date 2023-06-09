@@ -24,8 +24,7 @@ metadata:
       proxy_cache_bypass $http_upgrade;
 spec:
   rules:
-  - host: "prodtoken.gttest13.com"
-    http:
+  - http:
       paths:
       - path: /(metatoken/|token/|mmerchant/|mtoken/|blockchain/|merchant/|order/)
         pathType: Prefix
