@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: callcenter-api
-  replicas: 0
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
