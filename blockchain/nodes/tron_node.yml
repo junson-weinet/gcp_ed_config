@@ -5,7 +5,7 @@ metadata:
   namespace: token-api    #命名空间
 spec:
   selector:
-    name: tron-service
+    app: tron-service
   ports:
     - name: node
       protocol: TCP
