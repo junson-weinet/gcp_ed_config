@@ -60,7 +60,7 @@ metadata:
   namespace: token-api         #命名空间
 spec:
   selector:
-    app: bitcoin-tunnel           #        
+    app: bitcoin-tunnel           #
   type: NodePort
   ports:
   - protocol: TCP   
