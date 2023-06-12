@@ -19,7 +19,7 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: tron-service"
+  name: tron-service
   namespace: token-api
 subsets: 
   - addresses:
