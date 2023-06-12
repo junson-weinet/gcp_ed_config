@@ -1,23 +1,25 @@
-kind: "Service"
-apiVersion: "v1"
+kind: Service
+apiVersion: v1
 metadata:
-  name: "ethereum-service"
+  name: ethereum-service
   namespace: token-api    #命名空间
 spec:
+  selector:
+    name: ethereum-service           #
   ports:
-    - name: "ethnode"
-      protocol: "TCP"
+    - name: ethnode
+      protocol: TCP
       port: 8545
       targetPort: 8545 
 ---
-kind: "Endpoints"
-apiVersion: "v1"
+kind: Endpoints
+apiVersion: v1
 metadata:
-  name: "ethereum-service" 
+  name: ethereum-service
   namespace: token-api
 subsets: 
   - addresses:
-      - ip: "103.233.83.3" 
+      - ip: 103.233.83.3
     ports:
       - port: 8545 
-        name: "ethnode"
+        name: ethnode
