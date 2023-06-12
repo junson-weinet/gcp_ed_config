@@ -21,6 +21,8 @@ apiVersion: v1
 metadata:
   name: tron-service
   namespace: token-api
+  labels:
+    app: tron-service       #标签
 subsets: 
   - addresses:
       - ip: 103.233.83.4

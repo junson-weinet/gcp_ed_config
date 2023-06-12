@@ -59,7 +59,7 @@ metadata:
   namespace: token-api       
 spec:
   selector:
-    app: agile-conf       
+    app: agile-conf
   type: NodePort
   ports:
   - protocol: TCP   
