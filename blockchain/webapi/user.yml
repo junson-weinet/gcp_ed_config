@@ -14,7 +14,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxUnavailable: 1     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
     metadata:
