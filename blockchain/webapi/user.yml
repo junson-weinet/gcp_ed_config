@@ -64,8 +64,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-    annotations:
-      cloud.google.com/neg: '{"exposed_ports": {"10001":{}}}'
   name: user-svc            #服务名字
   namespace: token-api         #命名空间
   labels:
