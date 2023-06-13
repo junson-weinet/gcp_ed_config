@@ -33,14 +33,14 @@ spec:
           service:
             name: trade-svc
             port:
-              number: 10001
+              number: 80
       - path: /userapi/
         pathType: Prefix
         backend:
           service:
             name: user-svc
             port:
-              number: 10001
+              number: 80
       - path: /
         pathType: Prefix
         backend:

@@ -70,7 +70,7 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP   
-      port: 10001  
+      port: 80  
       targetPort: 10001
       name: http
     - protocol: TCP   
