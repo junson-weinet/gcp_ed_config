@@ -57,6 +57,26 @@ spec:
       - name: secrets
         secret:
           secretName: trade-settings           #配置文件名称
+---
+#定义对外访问的服务名字和端口
+apiVersion: v1
+kind: Service
+metadata:
+  name: trade-svc            #服务名字
+  namespace: token-api         #命名空间
+spec:
+  selector:
+    app: trade-api           #        
+  type: ClusterIP
+  ports:
+    - protocol: TCP   
+      port: 10001  
+      targetPort: 10001
+      name: tradeapi
+    - protocol: TCP   
+      port: 9000  
+      targetPort: 9000
+      name: thriftsvc
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
@@ -71,23 +91,3 @@ spec:
 #     kind: Deployment
 #     name: cash-api
 #   targetCPUUtilizationPercentage: 95
----
-#定义对外访问的服务名字和端口
-apiVersion: v1
-kind: Service
-metadata:
-  name: trade-svc            #服务名字
-  namespace: token-api         #命名空间
-spec:
-  selector:
-    app: trade-api           #        
-  type: ClusterIP
-  ports:
-  - protocol: TCP   
-    port: 10001  
-    targetPort: 10001
-    name: tradeapi
-  - protocol: TCP   
-    port: 9000  
-    targetPort: 9000
-    name: thriftsvc

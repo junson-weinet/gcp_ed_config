@@ -5,11 +5,11 @@ metadata:
   name: user-api        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app.kubernetes.io/name: user-api       #标签
+    app: user-api       #标签
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: user-api
+      app: user-api
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -19,7 +19,7 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: user-api       #模板名称必填
+        app: user-api       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
       - name: user-api      #镜像名称
@@ -66,10 +66,10 @@ kind: Service
 metadata:
   name: user-svc            #服务名字
   namespace: token-api         #命名空间
-  labels:
-    app.kubernetes.io/name: user-api
 spec:
-  type: ClusterIP
+  selector:
+    app: user-api           #        
+  type: NodePort
   ports:
     - protocol: TCP   
       port: 10001  
@@ -78,9 +78,7 @@ spec:
     - protocol: TCP   
       port: 9000  
       targetPort: 9000
-      name: thriftsvc  
-  selector:
-    app.kubernetes.io/name: user-api
+      name: thriftsvc
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
