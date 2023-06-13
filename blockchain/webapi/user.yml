@@ -71,14 +71,14 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - protocol: TCP   
-    port: 10001  
-    targetPort: 10001
-    name: userapi
-  - protocol: TCP   
-    port: 9000  
-    targetPort: 9000
-    name: thriftsvc  
+    - protocol: TCP   
+      port: 10001  
+      targetPort: 10001
+      name: userapi
+    - protocol: TCP   
+      port: 9000  
+      targetPort: 9000
+      name: thriftsvc  
   selector:
     app.kubernetes.io/name: user-api
 # ---
