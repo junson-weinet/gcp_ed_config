@@ -69,8 +69,6 @@ metadata:
   labels:
     app.kubernetes.io/name: user-api
 spec:
-  selector:
-    app.kubernetes.io/name: user-api
   type: ClusterIP
   ports:
   - protocol: TCP   
@@ -80,7 +78,9 @@ spec:
   - protocol: TCP   
     port: 9000  
     targetPort: 9000
-    name: thriftsvc
+    name: thriftsvc  
+  selector:
+    app.kubernetes.io/name: user-api
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
