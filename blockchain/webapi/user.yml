@@ -68,8 +68,11 @@ metadata:
   namespace: token-api         #命名空间
   labels:
     app: user-api
+  annotations:
+    networking.gke.io/load-balancer-type: "Internal"
 spec: 
-  type: ClusterIP
+  type: LoadBalancer
+  externalTrafficPolicy: Cluster
   ports:
     - port: 80
       protocol: TCP
