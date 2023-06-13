@@ -27,63 +27,14 @@ spec:
   - host: "tokenprod.gttest13.com"
     http:
       paths:
-      - path: /metatoken/
+      - path: /tradeapi/
         pathType: Prefix
         backend:
           service:
             name: trade-svc
             port:
               number: 10001
-      - path: /token/
-        pathType: Prefix
-        backend:
-          service:
-            name: trade-svc
-            port:
-              number: 10001
-      - path: /mmerchant/
-        pathType: Prefix
-        backend:
-          service:
-            name: trade-svc
-            port:
-              number: 10001
-      - path: /mtoken/
-        pathType: Prefix
-        backend:
-          service:
-            name: trade-svc
-            port:
-              number: 10001
-      - path: /blockchain/
-        pathType: Prefix
-        backend:
-          service:
-            name: trade-svc
-            port:
-              number: 10001
-      - path: /merchant/
-        pathType: Prefix
-        backend:
-          service:
-            name: trade-svc
-            port:
-              number: 10001
-      - path: /order/
-        pathType: Prefix
-        backend:
-          service:
-            name: trade-svc
-            port:
-              number: 10001              
-      - path: /user/
-        pathType: Prefix
-        backend:
-          service:
-            name: user-svc
-            port:
-              number: 10001
-      - path: /mgruser/
+      - path: /userapi/
         pathType: Prefix
         backend:
           service:
