@@ -72,11 +72,11 @@ spec:
     - protocol: TCP   
       port: 10001  
       targetPort: 10001
-      name: tradeapi
+      name: http
     - protocol: TCP   
       port: 9000  
       targetPort: 9000
-      name: thriftsvc
+      name: thrift
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler

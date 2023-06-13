@@ -74,9 +74,11 @@ spec:
     - port: 10001
       protocol: TCP
       targetPort: 10001
+      name: http
     - port: 9000
       protocol: TCP
       targetPort: 9000
+      name: thrift
   selector:
     app: user-api           #       
 # ---
