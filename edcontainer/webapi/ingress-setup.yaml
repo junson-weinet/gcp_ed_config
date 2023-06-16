@@ -25,7 +25,7 @@ spec:
   - host: "edco.cdweinet.com"
     http:
       paths:
-      - path: /activities/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /activities/
         pathType: Prefix
         backend:
           service:
@@ -46,49 +46,49 @@ spec:
             name: maintain-svc
             port:
               number: 10001
-      - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /cash/
         pathType: Prefix
         backend:
           service:
             name: cash-svc
             port:
               number: 10001
-      - path: /credit/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /credit/
         pathType: Prefix
         backend:
           service:
             name: credit-svc
             port:
               number: 10001
-      - path: /message/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /message/
         pathType: Prefix
         backend:
           service:
             name: msg-svc
             port:
               number: 10001
-      - path: /product/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /product/
         pathType: Prefix
         backend:
           service:
             name: product-svc
             port:
               number: 10001
-      - path: /system/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /system/
         pathType: Prefix
         backend:
           service:
             name: system-svc
             port:
               number: 10001
-      - path: /user/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /user/
         pathType: Prefix
         backend:
           service:
             name: user-svc
             port:
               number: 10001
-      - path: /warning/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /warning/
         pathType: Prefix
         backend:
           service:
