@@ -53,55 +53,6 @@ spec:
             name: cash-svc
             port:
               number: 10001
-      - path: /credit/
-        pathType: Prefix
-        backend:
-          service:
-            name: credit-svc
-            port:
-              number: 10001
-      - path: /message/
-        pathType: Prefix
-        backend:
-          service:
-            name: msg-svc
-            port:
-              number: 10001
-      - path: /product/
-        pathType: Prefix
-        backend:
-          service:
-            name: product-svc
-            port:
-              number: 10001
-      - path: /system/
-        pathType: Prefix
-        backend:
-          service:
-            name: system-svc
-            port:
-              number: 10001
-      - path: /user/
-        pathType: Prefix
-        backend:
-          service:
-            name: user-svc
-            port:
-              number: 10001
-      - path: /warning/
-        pathType: Prefix
-        backend:
-          service:
-            name: warning-svc
-            port:
-              number: 10001
-      - path: /paychange/
-        pathType: Prefix
-        backend:
-          service:
-            name: paychange-svc
-            port:
-              number: 10001
       - path: /
         pathType: Prefix
         backend:
