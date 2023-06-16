@@ -32,13 +32,6 @@ spec:
             name: activies-svc
             port:
               number: 10001
-      - path: /cash/
-        pathType: Prefix
-        backend:
-          service:
-            name: cash-svc
-            port:
-              number: 10001
       - path: /
         pathType: Prefix
         backend:
