@@ -25,6 +25,13 @@ spec:
   - host: "edco.cdweinet.com"
     http:
       paths:
+      - path: /activities/
+        pathType: Prefix
+        backend:
+          service:
+            name: activies-svc
+            port:
+              number: 10001
       - path: /
         pathType: Prefix
         backend:
