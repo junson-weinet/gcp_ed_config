@@ -71,8 +71,9 @@ metadata:
   annotations:
     networking.gke.io/load-balancer-type: "Internal"
 spec: 
-  type: LoadBalancer
-  externalTrafficPolicy: Cluster
+  selector:
+    app: user-api           #        
+  type: ClusterIP
   ports:
     - port: 80
       protocol: TCP

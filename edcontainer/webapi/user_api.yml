@@ -106,7 +106,7 @@ metadata:
 spec:
   selector:
     app: user-api           #
-  type: NodePort
+  type: ClusterIP
   ports:
   - protocol: TCP   
     port: 10001  
