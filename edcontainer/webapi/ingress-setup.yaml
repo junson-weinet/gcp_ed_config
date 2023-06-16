@@ -74,6 +74,13 @@ spec:
             name: product-svc
             port:
               number: 10001
+      #- path: /statistics/([a-z]{2}-[a-z]{2}/|swagger/?)
+      #  pathType: Prefix
+      #  backend:
+      #    service:
+      #      name: statistics-svc
+      #      port:
+      #        number: 10001
       - path: /system/([a-z]{2}-[a-z]{2}/|swagger/?)
         pathType: Prefix
         backend:
