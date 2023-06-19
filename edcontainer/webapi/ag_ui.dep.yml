@@ -79,7 +79,7 @@ metadata:
   labels:
     app.kubernetes.io/name: edag-ui
 spec:
-  type: ClusterIP
+  type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
   ports:
     - port: 8080
       targetPort: 8080

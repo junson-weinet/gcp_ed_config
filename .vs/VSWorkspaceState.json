@@ -6,6 +6,6 @@
     "\\edcontainer\\data-mssql\\conf",
     "\\edcontainer\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\user_api.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\activity_api.yml",
   "PreviewInSolutionExplorer": false
 }
