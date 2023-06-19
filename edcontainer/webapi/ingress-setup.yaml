@@ -22,7 +22,7 @@ metadata:
       proxy_cache_bypass $http_upgrade;
 spec:
   rules:
-  - host: "edco.cdweinet.com"
+  - host: "api.cdweinet.com"
     http:
       paths:
       - path: /activities/
@@ -88,7 +88,7 @@ spec:
             name: system-svc
             port:
               number: 10001
-      - path: /user/[a-z]{2}-[a-z]{2}/
+      - path: /user/
         pathType: Prefix
         backend:
           service:
@@ -102,6 +102,9 @@ spec:
             name: warning-svc
             port:
               number: 10001
+  - host: "edco.cdweinet.com"
+    http:
+      paths:
       - path: /
         pathType: Prefix
         backend:
@@ -109,7 +112,7 @@ spec:
             name: edco-ui-svc
             port:
               number: 8080 
-  - host: "edag.cdweinet.com"
+  - host: "agapi.cdweinet.com"
     http:
       paths:
       - path: /activities/
@@ -147,13 +150,16 @@ spec:
             name: user-svc
             port:
               number: 10001
+  - host: "edag.cdweinet.com"
+    http:
+      paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: edag-ui-svc
+            name: edco-ui-svc
             port:
-              number: 8080
+              number: 8080 
   - host: "seq.cdweinet.com"
     http:
       paths:
