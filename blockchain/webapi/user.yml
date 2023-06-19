@@ -14,7 +14,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxUnavailable: 1     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
     metadata:
@@ -30,19 +30,21 @@ spec:
         #  requests:
         #    cpu: 250m
         #    memory: 300Mi
-        image: gcr.io/rd-test-64435/chain_user_api:v23.6.8.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        image: gcr.io/rd-test-64435/chain_user_api:v23.6.19.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
         ports:           
         - containerPort: 10001    #对service暴露端口
-        - containerPort: 9000 
+          protocol: TCP
+        - containerPort: 9000
+          protocol: TCP
         livenessProbe:   #表示container是否处于live状态。如果LivenessProbe失败，LivenessProbe将会通知kubelet对应的container不健康了。
                          #随后kubelet将kill掉container，并根据RestarPolicy进行进一步的操作。默认情况下LivenessProbe在第一次检测之前初始化值为Success，
                          #如果container没有提供LivenessProbe，则也认为是Success；
           httpGet:
-            path: /hc    #如果没有心跳检测接口就为/
+            path: /    #如果没有心跳检测接口就为/
             scheme: HTTP
             port: 10001
           initialDelaySeconds: 180   ##启动后延时多久开始运行检测
@@ -57,6 +59,32 @@ spec:
       - name: secrets
         secret:
           secretName: user-settings           #配置文件名称
+---
+#定义对外访问的服务名字和端口
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-svc            #服务名字
+  namespace: token-api         #命名空间
+  labels:
+    app: user-api
+  annotations:
+    networking.gke.io/load-balancer-type: "Internal"
+spec: 
+  selector:
+    app: user-api           #        
+  type: ClusterIP
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 10001
+      name: http
+    - port: 9000
+      protocol: TCP
+      targetPort: 9000
+      name: thrift
+  selector:
+    app: user-api           #       
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
@@ -71,23 +99,3 @@ spec:
 #     kind: Deployment
 #     name: cash-api
 #   targetCPUUtilizationPercentage: 95
----
-#定义对外访问的服务名字和端口
-apiVersion: v1
-kind: Service
-metadata:
-  name: user-svc            #服务名字
-  namespace: token-api         #命名空间
-spec:
-  selector:
-    app: user-api           #        
-  type: NodePort
-  ports:
-  - protocol: TCP   
-    port: 10001  
-    targetPort: 10001
-    name: userapi
-  - protocol: TCP   
-    port: 9000  
-    targetPort: 9000
-    name: thriftsvc
