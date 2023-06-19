@@ -88,7 +88,7 @@ spec:
             name: system-svc
             port:
               number: 10001
-      - path: /user/
+      - path: /user/([a-z]{2}-[a-z]{2}/)
         pathType: Prefix
         backend:
           service:
