@@ -40,7 +40,7 @@ spec:
               port: 5000
             initialDelaySeconds: 180
             periodSeconds: 120
-            timeoutSeconds: 5
+            timeoutSeconds: 10
           resources:
             limits:
               cpu: 500m
