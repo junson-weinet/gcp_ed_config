@@ -35,14 +35,15 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: ui
+              scheme: HTTP
+              port: 5000
             initialDelaySeconds: 180
             periodSeconds: 120
-            timeoutSeconds: 10
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: ui
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
           resources:
             limits:
               cpu: 500m
