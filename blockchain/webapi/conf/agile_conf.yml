@@ -38,11 +38,11 @@ spec:
               port: ui
             initialDelaySeconds: 180
             periodSeconds: 120
-            timeoutSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /
-              port: ui
+            timeoutSeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: ui
           resources:
             limits:
               cpu: 500m
