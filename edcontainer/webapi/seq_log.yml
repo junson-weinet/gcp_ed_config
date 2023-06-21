@@ -32,11 +32,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: ui
-          readinessProbe:
-            httpGet:
-              path: /
-              port: ui
+              scheme: HTTP
+              port: 80
+            initialDelaySeconds: 180
+            periodSeconds: 120
+            timeoutSeconds: 10
           volumeMounts:
           - name: seq-data
             mountPath: /data
