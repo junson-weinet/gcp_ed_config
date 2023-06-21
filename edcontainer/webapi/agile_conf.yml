@@ -44,14 +44,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: ui
+              scheme: HTTP
+              port: 5000
             initialDelaySeconds: 180   ##启动后延时多久开始运行检测
             periodSeconds: 120
             timeoutSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /
-              port: ui
 ---
 
 apiVersion: v1
