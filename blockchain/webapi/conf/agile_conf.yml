@@ -35,10 +35,10 @@ spec:
           - containerPort: 5000
           livenessProbe:
             httpGet:
-              path: /
+              path: /home/sys
               scheme: HTTP
               port: 5000
-            initialDelaySeconds: 180
+            initialDelaySeconds: 30
             periodSeconds: 120
             timeoutSeconds: 10
           resources:
