@@ -46,8 +46,8 @@ spec:
             scheme: HTTP
             port: 10001
           initialDelaySeconds: 180   ##启动后延时多久开始运行检测
-          periodSeconds: 120
-          timeoutSeconds: 5
+          periodSeconds: 180
+          timeoutSeconds: 10
         args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
