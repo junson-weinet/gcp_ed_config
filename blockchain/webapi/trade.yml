@@ -45,7 +45,7 @@ spec:
             path: /    #如果没有心跳检测接口就为/
             scheme: HTTP
             port: 10001
-          initialDelaySeconds: 180   ##启动后延时多久开始运行检测
+          initialDelaySeconds: 30   ##启动后延时多久开始运行检测
           periodSeconds: 180
           timeoutSeconds: 10
         args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
