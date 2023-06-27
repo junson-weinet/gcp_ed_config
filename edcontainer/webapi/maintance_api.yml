@@ -52,7 +52,7 @@ spec:
         - name: "ASPNETCORE_ENVIRONMENT"    #ASPNETCORE
           value: "Staging"
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
-          value: "maintain"
+          value: "Maintain"
         - name: "AgileConfig__name"    
           value: "client_maintain"
         - name: "SYS_SITE" #设置站台ID
