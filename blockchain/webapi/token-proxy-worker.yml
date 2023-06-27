@@ -26,7 +26,7 @@ spec:
         resources:          ##CPU内存限制
          limits:
            cpu: 500m
-           memory: 600Mi
+           memory: 1536Mi
          requests:
            cpu: 250m
            memory: 300Mi
