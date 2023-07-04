@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: proxy-worker
-  replicas: 1
+  replicas: 0
   strategy:
     type: RollingUpdate
     rollingUpdate:
