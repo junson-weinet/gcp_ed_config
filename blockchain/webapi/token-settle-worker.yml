@@ -2,14 +2,14 @@
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker        #depolymet名称
+  name: settle-worker        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: settle-worker       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: settle-worker
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -19,25 +19,23 @@ spec:
   template:
     metadata:
       labels:
-        app: proxy-worker       #模板名称必填
+        app: settle-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
+      - name: settle-worker      #镜像名称
         resources:          ##CPU内存限制
          limits:
            cpu: 500m
-           memory: 1536Mi
+           memory: 600Mi
          requests:
            cpu: 250m
            memory: 300Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.7.04.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.7.04.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
-        # - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
-        #   value: "User"
         args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
@@ -46,12 +44,12 @@ spec:
       volumes:
       - name: secrets
         secret:
-          secretName: proxy-worker-settings           #配置文件名称
+          secretName: settle-worker-settings           #配置文件名称
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
 # metadata:
-#   name: hpd-proxy-worker
+#   name: hpd-settle-worker
 #   namespace: token-api
 # spec:
 #   maxReplicas: 10
@@ -59,5 +57,5 @@ spec:
 #   scaleTargetRef:
 #     apiVersion: apps/v1
 #     kind: Deployment
-#     name: proxy-worker
+#     name: settle-worker
 #   targetCPUUtilizationPercentage: 95
