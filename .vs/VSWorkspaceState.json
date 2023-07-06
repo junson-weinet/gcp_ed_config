@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+    "\\blockchain",
     "\\blockchain\\data-redis",
     "\\blockchain\\nodes",
     "\\blockchain\\webapi",
@@ -9,6 +10,6 @@
     "\\otc",
     "\\otc\\data-redis"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\proxy_node.yml",
+  "SelectedNode": "\\blockchain\\webapi\\token-settle-worker.yml",
   "PreviewInSolutionExplorer": false
 }
