@@ -111,7 +111,14 @@ spec:
           service:
             name: edco-ui-svc
             port:
-              number: 8080 
+              number: 8080
+      - path: /hangfire/
+        pathType: Prefix
+        backend:
+          service:
+            name: backgroundtasks-svc
+            port:
+              number: 10001
   - host: "agapi.cdweinet.com"
     http:
       paths:
