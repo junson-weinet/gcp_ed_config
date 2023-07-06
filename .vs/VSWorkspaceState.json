@@ -6,10 +6,9 @@
     "\\blockchain\\nodes",
     "\\blockchain\\webapi",
     "\\edcontainer",
-    "\\edcontainer\\webapi",
     "\\otc",
     "\\otc\\data-redis"
   ],
-  "SelectedNode": "\\blockchain\\webapi\\token-settle-worker.yml",
+  "SelectedNode": "\\blockchain\\webapi\\token-collect-worker.yml",
   "PreviewInSolutionExplorer": false
 }
