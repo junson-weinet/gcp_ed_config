@@ -48,6 +48,30 @@ spec:
             name: token-ui-svc
             port:
               number: 8080
+  - host: "tokenmgr.gttest13.com"
+    http:
+      paths:
+      - path: /tradeapi/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 80
+      - path: /userapi/
+        pathType: Prefix
+        backend:
+          service:
+            name: user-svc
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: token-mgr-ui-svc
+            port:
+              number: 8080
 # ---
 # apiVersion: v1
 # kind: Service
