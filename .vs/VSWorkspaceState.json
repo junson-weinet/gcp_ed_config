@@ -1,14 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\blockchain\\data-redis",
-    "\\blockchain\\nodes",
-    "\\blockchain\\webapi",
     "\\edcontainer",
+    "\\edcontainer\\data-redis",
     "\\edcontainer\\webapi",
     "\\otc",
-    "\\otc\\data-redis"
+    "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\proxy_node.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\backgroundtasks.yml",
   "PreviewInSolutionExplorer": false
 }
