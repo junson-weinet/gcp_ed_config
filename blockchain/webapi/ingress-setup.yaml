@@ -58,6 +58,13 @@ spec:
             name: trade-svc
             port:
               number: 80
+      - path: /mmerchant/
+        pathType: Prefix
+        backend:
+          service:
+            name: trade-svc
+            port:
+              number: 80
       - path: /userapi/
         pathType: Prefix
         backend:
