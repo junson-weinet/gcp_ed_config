@@ -118,27 +118,6 @@ spec:
   - host: "edco.cdweinet.com"
     http:
       paths:
-      - path: /hangfire/
-        pathType: Prefix
-        backend:
-          service:
-            name: backgroundtasks-svc
-            port:
-              number: 10001
-      - path: /callcenter/
-        pathType: Prefix
-        backend:
-          service:
-            name: callcenter-svc
-            port:
-              number: 10001
-      - path: /srdemo/
-        pathType: Prefix
-        backend:
-          service:
-            name: edco-ui-svc
-            port:
-              number: 8080
       - path: /
         pathType: Prefix
         backend:
