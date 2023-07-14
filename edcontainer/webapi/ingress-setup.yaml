@@ -138,9 +138,9 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: transit-svc
+            name: edco-ui-svc
             port:
-              number: 10001
+              number: 8080
   # - host: "agapi.cdweinet.com"
   #   http:
   #     paths:
