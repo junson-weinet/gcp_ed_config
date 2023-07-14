@@ -6,7 +6,11 @@ metadata:
   annotations:
     cloud.google.com/neg: "nginx"
     nginx.ingress.kubernetes.io/use-regex: "true"
-    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/x-forwarded-prefix: "/"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+    nginx.org/websocket-services: "callcenter-svc"
     nginx.ingress.kubernetes.io/location-snippets: |
       proxy_set_header Upgrade "websocket";
       proxy_http_version 1.1;
