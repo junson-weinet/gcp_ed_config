@@ -22,86 +22,86 @@ metadata:
       proxy_cache_bypass $http_upgrade;
 spec:
   rules:
-  # - host: "api.cdweinet.com"
-  #   http:
-  #     paths:
-  #     - path: /activities/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: activies-svc
-  #           port:
-  #             number: 10001
-  #     - path: /callcenter/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: callcenter-svc
-  #           port:
-  #             number: 10001
-  #     - path: /cash/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: cash-svc
-  #           port:
-  #             number: 10001
-  #     - path: /credit/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: credit-svc
-  #           port:
-  #             number: 10001
-  #     - path: /maintain/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: maintain-svc
-  #           port:
-  #             number: 10001
-  #     - path: /message/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: msg-svc
-  #           port:
-  #             number: 10001
-  #     - path: /paychange/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: paychange-svc
-  #           port:
-  #             number: 10001
-  #     - path: /product/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: product-svc
-  #           port:
-  #             number: 10001
-  #     - path: /system/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: system-svc
-  #           port:
-  #             number: 10001
-  #     - path: /user/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: user-svc
-  #           port:
-  #             number: 10001
-  #     - path: /warning/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: warning-svc
-  #           port:
-  #             number: 10001
+  - host: "api.cdweinet.com"
+    http:
+      paths:
+      - path: /activities/
+        pathType: Prefix
+        backend:
+          service:
+            name: activies-svc
+            port:
+              number: 10001
+      - path: /callcenter/
+        pathType: Prefix
+        backend:
+          service:
+            name: callcenter-svc
+            port:
+              number: 10001
+      - path: /cash/
+        pathType: Prefix
+        backend:
+          service:
+            name: cash-svc
+            port:
+              number: 10001
+      - path: /credit/
+        pathType: Prefix
+        backend:
+          service:
+            name: credit-svc
+            port:
+              number: 10001
+      - path: /maintain/
+        pathType: Prefix
+        backend:
+          service:
+            name: maintain-svc
+            port:
+              number: 10001
+      - path: /message/
+        pathType: Prefix
+        backend:
+          service:
+            name: msg-svc
+            port:
+              number: 10001
+      - path: /paychange/
+        pathType: Prefix
+        backend:
+          service:
+            name: paychange-svc
+            port:
+              number: 10001
+      - path: /product/
+        pathType: Prefix
+        backend:
+          service:
+            name: product-svc
+            port:
+              number: 10001
+      - path: /system/
+        pathType: Prefix
+        backend:
+          service:
+            name: system-svc
+            port:
+              number: 10001
+      - path: /user/
+        pathType: Prefix
+        backend:
+          service:
+            name: user-svc
+            port:
+              number: 10001
+      - path: /warning/
+        pathType: Prefix
+        backend:
+          service:
+            name: warning-svc
+            port:
+              number: 10001
   - host: "edco.cdweinet.com"
     http:
       paths:
@@ -119,62 +119,62 @@ spec:
             name: edco-ui-svc
             port:
               number: 8080
-  # - host: "agapi.cdweinet.com"
-  #   http:
-  #     paths:
-  #     - path: /activities/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: activies-svc
-  #           port:
-  #             number: 10001
-  #     - path: /message/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: msg-svc
-  #           port:
-  #             number: 10001
-  #     - path: /product/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: product-svc
-  #           port:
-  #             number: 10001
-  #     - path: /system/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: system-svc
-  #           port:
-  #             number: 10001
-  #     - path: /user/
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: user-svc
-  #           port:
-  #             number: 10001
-  # - host: "edag.cdweinet.com"
-  #   http:
-  #     paths:
-  #     - path: /
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: edco-ui-svc
-  #           port:
-  #             number: 8080 
-  # - host: "seq.cdweinet.com"
-  #   http:
-  #     paths:
-  #     - path: /
-  #       pathType: Prefix
-  #       backend:
-  #         service:
-  #           name: seq-svc
-  #           port:
-  #             number: 5342
+  - host: "agapi.cdweinet.com"
+    http:
+      paths:
+      - path: /activities/
+        pathType: Prefix
+        backend:
+          service:
+            name: activies-svc
+            port:
+              number: 10001
+      - path: /message/
+        pathType: Prefix
+        backend:
+          service:
+            name: msg-svc
+            port:
+              number: 10001
+      - path: /product/
+        pathType: Prefix
+        backend:
+          service:
+            name: product-svc
+            port:
+              number: 10001
+      - path: /system/
+        pathType: Prefix
+        backend:
+          service:
+            name: system-svc
+            port:
+              number: 10001
+      - path: /user/
+        pathType: Prefix
+        backend:
+          service:
+            name: user-svc
+            port:
+              number: 10001
+  - host: "edag.cdweinet.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: edco-ui-svc
+            port:
+              number: 8080 
+  - host: "seq.cdweinet.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: seq-svc
+            port:
+              number: 5342
 
