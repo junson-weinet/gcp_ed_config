@@ -51,10 +51,12 @@ kind: Service
 metadata:
   name: proxy-service            #服务名字
   namespace: edapi         #命名空间
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
 spec:
   selector:
     app: proxy-tunnel           #
-  type: NodePort
+  type: ClusterIP
   ports:
   - protocol: TCP   
     port: 1433  

@@ -52,16 +52,18 @@ spec:
       - name: seq-data
         emptyDir: {}
 ---
-#定义对外访问的服务名字和端口
+#锟斤拷锟斤拷锟斤拷锟斤拷锟绞的凤拷锟斤拷锟斤拷锟街和端匡拷
 apiVersion: v1
 kind: Service
 metadata:
-  name: seq-svc           #服务名字
-  namespace: edapi       #命名空间
+  name: seq-svc           #锟斤拷锟斤拷锟斤拷锟斤拷
+  namespace: edapi       #锟斤拷锟斤拷锟秸硷拷
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
 spec:
   selector:
     app: seq-log           #        
-  type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
+  type: ClusterIP     #注锟斤拷锟铰碉拷GCP锟斤拷锟斤拷要指锟斤拷为 ClusterIP 锟斤拷锟皆硷拷锟絅odePort 锟斤拷锟斤拷锟絩outer一直锟斤拷锟斤拷锟斤拷 
   ports:
   - protocol: TCP   
     port: 5341  
