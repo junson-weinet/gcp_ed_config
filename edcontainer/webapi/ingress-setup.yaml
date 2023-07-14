@@ -9,9 +9,10 @@ metadata:
     cloud.google.com/neg: '{"ingress": true}'
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/x-forwarded-prefix: "/"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "60s"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "60s"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+    nginx.org/websocket-services: "callcenter-svc"
     nginx.ingress.kubernetes.io/location-snippets: |
       proxy_set_header Upgrade "websocket";
       proxy_set_header Connection "upgrade";
