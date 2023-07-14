@@ -27,9 +27,9 @@ metadata:
       proxy_cache_bypass $http_upgrade;
 spec:
   rules:
-  - host: "api.cdweinet.com"
-    http:
-      paths:
+  # - host: "api.cdweinet.com"
+  #   http:
+  #     paths:
       # - path: /activities/
       #   pathType: Prefix
       #   backend:
@@ -94,13 +94,13 @@ spec:
       #       port:
       #         number: 10001
       #- path: /user/
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: user-svc
-            port:
-              number: 10001
+      # - path: /
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: user-svc
+      #       port:
+      #         number: 10001
       # - path: /warning/
       #   pathType: Prefix
       #   backend:
