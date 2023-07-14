@@ -129,7 +129,7 @@ spec:
             name: callcenter-svc
             port:
               number: 10001
-      - path: /transit/
+      - path: /
         pathType: Prefix
         backend:
           service:
@@ -137,13 +137,6 @@ spec:
             port:
               number: 10001
       - path: /srdemo/
-        pathType: Prefix
-        backend:
-          service:
-            name: edco-ui-svc
-            port:
-              number: 8080
-      - path: /
         pathType: Prefix
         backend:
           service:
