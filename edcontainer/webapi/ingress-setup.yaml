@@ -23,11 +23,6 @@ metadata:
       proxy_set_header Host $host;
       proxy_cache_bypass $http_upgrade;
 spec:
-  defaultBackend:
-    service:
-      name: activies-svc
-      port:
-        number: 10001
   rules:
   - host: "api.cdweinet.com"
     http:
@@ -103,6 +98,13 @@ spec:
             port:
               number: 10001
       - path: /warning/
+        pathType: Prefix
+        backend:
+          service:
+            name: warning-svc
+            port:
+              number: 10001
+      - path: /
         pathType: Prefix
         backend:
           service:
