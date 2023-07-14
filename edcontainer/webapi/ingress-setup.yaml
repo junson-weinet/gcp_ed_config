@@ -91,7 +91,6 @@ spec:
             port:
               number: 10001
       - path: /user/
-      - path: /
         pathType: Prefix
         backend:
           service:
