@@ -22,6 +22,8 @@ spec:
           env:
             - name: "ACCEPT_EULA"
               value: "Y"
+            - name: "SEQ__SERILOG__MINIMUMLEVEL"
+              value: "Warning"
           ports:
             - name: ingestion
               containerPort: 5341
