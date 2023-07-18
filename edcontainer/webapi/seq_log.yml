@@ -22,7 +22,7 @@ spec:
           env:
             - name: "ACCEPT_EULA"
               value: "Y"
-            - name: "Logging__LogLevel__Default"
+            - name: "Serilog__MinimumLevel"
               value: "Warning"
           ports:
             - name: ingestion
