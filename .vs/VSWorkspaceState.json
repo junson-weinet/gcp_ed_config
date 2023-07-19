@@ -1,15 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\blockchain\\data-mysql",
-    "\\blockchain\\nodes",
-    "\\blockchain\\webapi",
     "\\edcontainer",
     "\\edcontainer\\data-redis",
     "\\edcontainer\\webapi",
     "\\otc",
     "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\product_api.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\seq_log.yml",
   "PreviewInSolutionExplorer": false
 }
