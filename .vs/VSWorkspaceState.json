@@ -2,11 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\edcontainer",
+    "\\edcontainer\\data-mssql",
+    "\\edcontainer\\data-mssql\\conf",
     "\\edcontainer\\data-redis",
+    "\\edcontainer\\data-redis\\conf",
     "\\edcontainer\\webapi",
+    "\\edcontainer\\webapi\\conf",
+    "\\edcontainer\\webapi\\mq",
     "\\otc",
     "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\seq_log.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\ingress-setup.yaml",
   "PreviewInSolutionExplorer": false
 }
