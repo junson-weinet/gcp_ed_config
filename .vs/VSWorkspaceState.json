@@ -12,6 +12,6 @@
     "\\otc",
     "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\ingress-setup.yaml",
+  "SelectedNode": "\\edcontainer\\webapi\\productproxy_api.yml",
   "PreviewInSolutionExplorer": false
 }
