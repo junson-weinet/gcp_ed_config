@@ -16,10 +16,11 @@ metadata:
         proxy_set_header Host $host;
         proxy_set_header Connection "upgrade";
         proxy_cache_bypass $http_upgrade;
-        }
+      }
+
 spec:
   rules:
-  - host: "otc.t72yiq.com" 
+  - host: "^(vipa058|vipa026).t72yiq.com$"
     http:
       paths:
       - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
@@ -57,7 +58,7 @@ spec:
             name: otcco-ui-svc
             port:
               number: 8080   
-  - host: "otcclient.t72yiq.com" 
+  - host: "^(coa058|coa026).t72yiq.com$"
     http:
       paths:
       - path: /
