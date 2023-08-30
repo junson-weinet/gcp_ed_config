@@ -17,10 +17,12 @@ metadata:
         proxy_set_header Connection "upgrade";
         proxy_cache_bypass $http_upgrade;
       }
+      nginx.ingress.kubernetes.io/server-alias: "vip1.t72yiq.com, vip2.t72yiq.com"
+      nginx.ingress.kubernetes.io/server-alias: "cc1.t72yiq.com, cc2.t72yiq.com"
 
 spec:
   rules:
-  - host: "vipa058.t72yiq.com"
+  - host: "*.t72yiq.com"
     http:
       paths:
       - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
