@@ -68,6 +68,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-alias: "vipa058.t72yiq.com, vipa026.t72yiq.com"
     nginx.ingress.kubernetes.io/server-snippets: |
       location / {
         proxy_set_header Upgrade $http_upgrade;
@@ -79,7 +80,6 @@ metadata:
         proxy_set_header Connection "upgrade";
         proxy_cache_bypass $http_upgrade;
       }
-      nginx.ingress.kubernetes.io/server-alias: "vipa058.t72yiq.com, vipa026.t72yiq.com"
 spec:
   rules:
   - host: "vipa058.t72yiq.com"
