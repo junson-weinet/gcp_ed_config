@@ -20,7 +20,7 @@ metadata:
 
 spec:
   rules:
-  - host: "*vip.t72yiq.com"
+  - host: "vip[a-z0-9].t72yiq.com"
     http:
       paths:
       - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
