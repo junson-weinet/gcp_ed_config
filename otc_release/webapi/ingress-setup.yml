@@ -20,7 +20,7 @@ metadata:
 
 spec:
   rules:
-  - host: "vip*.t72yiq.com"
+  - host: "vip(*).t72yiq.com"
     http:
       paths:
       - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
@@ -58,41 +58,3 @@ spec:
             name: otcco-ui-svc
             port:
               number: 8080   
-  - host: "co*.t72yiq.com$"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: otcclient-ui-svc
-            port:
-              number: 8080 
-      - path: /hub/
-        pathType: Prefix
-        backend:
-          service:
-            name: otcuser-svc
-            port:
-              number: 10001
-      - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
-        pathType: Prefix
-        backend:
-          service:
-            name: otccash-svc
-            port:
-              number: 10001
-      - path: /user/([a-z]{2}-[a-z]{2}/|swagger/?)
-        pathType: Prefix
-        backend:
-          service:
-            name: otcuser-svc
-            port:
-              number: 10001
-      - path: /hangfire/
-        pathType: Prefix
-        backend:
-          service:
-            name: bgtasks-svc
-            port:
-              number: 10001
