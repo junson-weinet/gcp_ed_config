@@ -68,7 +68,6 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/server-alias: "vipa058.t72yiq.com, vipa026.t72yiq.com"
     nginx.ingress.kubernetes.io/server-snippets: |
       location / {
         proxy_set_header Upgrade $http_upgrade;
@@ -120,3 +119,4 @@ spec:
             name: bgtasks-svc
             port:
               number: 10001
+    nginx.ingress.kubernetes.io/server-alias: "vipa026.t72yiq.com, vipa059.t72yiq.com"
