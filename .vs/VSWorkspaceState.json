@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\blockchain",
+    "\\blockchain\\webapi",
     "\\edcontainer",
-    "\\edcontainer\\data-mssql",
-    "\\edcontainer\\data-mssql\\conf",
     "\\edcontainer\\data-redis",
     "\\edcontainer\\data-redis\\conf",
     "\\edcontainer\\webapi",
@@ -12,6 +12,6 @@
     "\\otc",
     "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\productproxy_api.yml",
+  "SelectedNode": "\\blockchain\\webapi\\user.yml",
   "PreviewInSolutionExplorer": false
 }
