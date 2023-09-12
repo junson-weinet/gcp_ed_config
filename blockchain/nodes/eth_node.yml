@@ -21,7 +21,7 @@ metadata:
     app: ethereum-service       #标签
 subsets: 
   - addresses:
-      - ip: 103.233.83.3
+      - ip: 67.198.180.26
     ports:
       - port: 8545 
         name: ethnode
