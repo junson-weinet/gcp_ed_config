@@ -296,7 +296,6 @@ spec:
     metadata:
       labels:
         app: proxy-worker-usdc-bep20       #模板名称必填  
-    metadata:
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
       - name: proxy-worker-usdc-bep20
