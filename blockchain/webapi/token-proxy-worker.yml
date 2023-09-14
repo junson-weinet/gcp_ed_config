@@ -5,11 +5,11 @@ metadata:
   name: proxy-worker-rate        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-rate       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-rate
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -17,13 +17,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -51,11 +47,11 @@ metadata:
   name: proxy-worker-eth        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-eth       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-eth
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -63,13 +59,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -94,14 +86,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-usdc_erc20        #depolymet名称
+  name: proxy-worker-usdc-erc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-usdc-erc20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-usdc-erc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -109,13 +101,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -140,14 +128,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-usdt_erc20        #depolymet名称
+  name: proxy-worker-usdt-erc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-usdt-erc20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-usdt-erc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -155,13 +143,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -186,14 +170,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-gtt_erc20        #depolymet名称
+  name: proxy-worker-gtt-erc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-gtt-erc20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-gtt-erc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -201,13 +185,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -235,11 +215,11 @@ metadata:
   name: proxy-worker-bnb        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-bnb       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-bnb
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -247,13 +227,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -278,14 +254,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-usdc_bep20        #depolymet名称
+  name: proxy-worker-usdc-bep20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-usdc-bep20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-usdc-bep20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -294,12 +270,9 @@ spec:
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
     metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -324,14 +297,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-usdt_bep20        #depolymet名称
+  name: proxy-worker-usdt-bep20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-usdt-bep20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-usdt-bep20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -339,13 +312,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -373,11 +342,11 @@ metadata:
   name: proxy-worker-trx        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-trx       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-trx
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -385,13 +354,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -416,14 +381,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-usdc_trc20        #depolymet名称
+  name: proxy-worker-usdc-trc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-usdc-trc20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-usdc-trc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -431,13 +396,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -462,14 +423,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-usdt_trc20        #depolymet名称
+  name: proxy-worker-usdt-trc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-usdt-trc20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-usdt-trc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -477,13 +438,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -508,14 +465,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: proxy-worker-rmbb_trc20        #depolymet名称
+  name: proxy-worker-rmbb-trc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-rmbb-trc20       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-rmbb-trc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -523,13 +480,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
@@ -557,11 +510,11 @@ metadata:
   name: proxy-worker-btc        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: proxy-worker       #标签
+    app: proxy-worker-btc       #标签
 spec:
   selector:
     matchLabels:
-      app: proxy-worker
+      app: proxy-worker-btc
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -569,13 +522,9 @@ spec:
       maxUnavailable: 0     #更新时候最大无效pod数量
       maxSurge: 1           #更新时候每次最多增加pod数量
   template:
-    metadata:
-      labels:
-        app: proxy-worker       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: proxy-worker      #镜像名称
-        resources:          ##CPU内存限制
+      - resources:          ##CPU内存限制
          requests:
            cpu: 250m
            memory: 200Mi
