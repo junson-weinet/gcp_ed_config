@@ -44,7 +44,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-#---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -90,7 +90,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -136,7 +136,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -182,7 +182,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -228,7 +228,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -274,7 +274,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -321,7 +321,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -367,7 +367,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -413,7 +413,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -459,7 +459,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -505,7 +505,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -551,7 +551,7 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
-# ---
+---
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
@@ -597,17 +597,17 @@ spec:
       - name: secrets
         secret:
           secretName: proxy-worker-settings           #配置文件名称
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: hpd-proxy-worker
-  namespace: token-api
-spec:
-  maxReplicas: 10
-  minReplicas: 1
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: proxy-worker
-  targetCPUUtilizationPercentage: 95
+# ---
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: hpd-proxy-worker
+#   namespace: token-api
+# spec:
+#   maxReplicas: 10
+#   minReplicas: 1
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: proxy-worker
+#   targetCPUUtilizationPercentage: 95
