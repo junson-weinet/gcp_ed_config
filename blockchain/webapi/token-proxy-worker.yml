@@ -584,10 +584,10 @@ spec:
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
-        # env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
-        # - name: token #局策略可使用configMap的配置Key，
-        #   value: "btc"
-        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0", "token=btc"]
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "btc"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
           mountPath: /app/appsettings.json
