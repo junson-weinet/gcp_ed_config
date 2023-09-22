@@ -3,4 +3,6 @@ kind: BackendConfig
 metadata:
   name: to-backendconfig
 spec:
-  timeoutSec: 300
+  timeoutSec: 1800
+  connectionDraining:
+    drainingTimeoutSec: 1800
