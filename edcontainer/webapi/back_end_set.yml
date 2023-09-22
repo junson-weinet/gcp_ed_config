@@ -4,6 +4,6 @@ metadata:
   name: beconfig
   namespace: edapi
 spec:
-  timeoutSec: 10
+  timeoutSec: 25
   connectionDraining:
-    drainingTimeoutSec: 10
+    drainingTimeoutSec: 25
