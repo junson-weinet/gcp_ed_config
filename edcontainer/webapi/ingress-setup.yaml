@@ -37,8 +37,8 @@ spec:
             name: activies-svc
             port:
               number: 10001
-      - path: /callcenter/*
-        pathType: ImplementationSpecific
+      - path: /callcenter/
+        pathType: Prefix
         backend:
           service:
             name: callcenter-svc2
@@ -128,7 +128,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: callcenter-service
+            name: callcenter-svc2
             port:
               number: 10001
       - path: /srdemo/
