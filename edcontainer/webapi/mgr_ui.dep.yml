@@ -5,6 +5,9 @@ metadata:
   namespace: edapi
   labels:
     app.kubernetes.io/name: edco-ui
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+    cloud.google.com/backend-config: '{"default": "to-backendconfig"}'
 spec:
   replicas: 1
   strategy:
