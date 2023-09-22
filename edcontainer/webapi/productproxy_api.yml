@@ -30,7 +30,7 @@ spec:
         #  requests:
         #    cpu: 250m
         #    memory: 300Mi
-        image: gcr.io/rd-test-64435/ed_productproxy_api:v23.9.21.2    #镜像地址
+        image: gcr.io/rd-test-64435/ed_productproxy_api:v23.9.22.2    #镜像地址
         #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
