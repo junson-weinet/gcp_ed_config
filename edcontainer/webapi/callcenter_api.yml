@@ -102,6 +102,7 @@ metadata:
   namespace: edapi               #命名空间
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
+    cloud.google.com/backend-config: '{"default": "to-backendconfig"}'
 spec:
   selector:
     app: callcenter-api           #        
