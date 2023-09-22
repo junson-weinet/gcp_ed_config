@@ -10,7 +10,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
-    nginx.org/websocket-services: "callcenter-service"
+    nginx.org/websocket-services: "callcenter-svc"
     nginx.org/keepalive: "Upgrade"
     nginx.org/proxy-connect-timeout: "120s"
     nginx.org/proxy-read-timeout: "60s"
@@ -41,7 +41,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: callcenter-svc2
+            name: callcenter-svc
             port:
               number: 10001
       - path: /cash/
@@ -128,7 +128,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: callcenter-svc2
+            name: callcenter-svc
             port:
               number: 10001
       - path: /srdemo/
