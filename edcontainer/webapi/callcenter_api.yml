@@ -102,7 +102,7 @@ metadata:
   namespace: edapi               #命名空间
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
-    cloud.google.com/backend-config: '{"default": "to-backendconfig"}'  #一定要加这个注释，根据to-backendconfig.yml设定超时时间，否则socket会每30s超时一次
+    cloud.google.com/backend-config: '{"ports": {"10001": "to-backendconfig"}}'  #一定要加这个注释，根据to-backendconfig.yml设定超时时间，否则socket会每30s超时一次
 spec:
   selector:
     app: callcenter-api           #        
