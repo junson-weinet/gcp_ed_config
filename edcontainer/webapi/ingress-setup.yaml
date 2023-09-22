@@ -41,7 +41,7 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: callcenter-svc
+            name: callcenter-svc2
             port:
               number: 10001
       - path: /cash/
