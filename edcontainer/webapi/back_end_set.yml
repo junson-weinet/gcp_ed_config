@@ -2,6 +2,5 @@ apiVersion: cloud.google.com/v1
 kind: BackendConfig
 metadata:
   name: beconfig
-  namespace: edapi
 spec:
-  timeoutSec: 22
+  timeoutSec: 28
