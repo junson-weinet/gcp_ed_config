@@ -94,14 +94,15 @@ spec:
 #   targetCPUUtilizationPercentage: 95
 ---
 #定义对外访问的服务名字和端口
+#kubectl annotate svc callcenter-service -n edapi cloud.google.com/backend-config='{"default": "to-backendconfig"}'
 apiVersion: v1
 kind: Service
 metadata:
-  name: callcenter-svc            #服务名字
+  name: callcenter-sc            #服务名字
   namespace: edapi               #命名空间
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
-    cloud.google.com/backend-config: '{"default": "to-backendconfig"}'  #一定要加这个注释，根据to-backendconfig.yml设定超时时间，否则socket会每30s超时一次
+    cloud.google.com/backend-config: '{"default": "beconfig"}'  #一定要加这个注释，根据to-backendconfig.yml设定超时时间，否则socket会每30s超时一次
 spec:
   selector:
     app: callcenter-api           #        
