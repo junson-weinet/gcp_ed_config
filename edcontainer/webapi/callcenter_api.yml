@@ -94,7 +94,6 @@ spec:
 #   targetCPUUtilizationPercentage: 95
 ---
 #定义对外访问的服务名字和端口
-#kubectl annotate svc callcenter-service -n edapi cloud.google.com/backend-config='{"default": "to-backendconfig"}'
 apiVersion: v1
 kind: Service
 metadata:
@@ -102,11 +101,12 @@ metadata:
   namespace: edapi               #命名空间
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
+    beta.cloud.google.com/backend-config: '{"ports": {"10001": "beconfig"}}'
     cloud.google.com/backend-config: '{"default": "beconfig"}'  #一定要加这个注释，根据to-backendconfig.yml设定超时时间，否则socket会每30s超时一次
 spec:
   selector:
     app: callcenter-api           #        
-  type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
+  type: LoadBalancer     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
   ports:
   - protocol: TCP   
     port: 10001  
