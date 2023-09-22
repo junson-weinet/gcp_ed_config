@@ -5,12 +5,13 @@ metadata:
   namespace: edapi
   annotations:
     cloud.google.com/neg: "nginx"
+    cloud.google.com/backend-config: '{"default": "beconfig"}'
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/x-forwarded-prefix: "/"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
-    nginx.org/websocket-services: "callcenter-svc"
+    nginx.org/websocket-services: "callcenter-sc"
     nginx.org/keepalive: "Upgrade"
     nginx.org/proxy-connect-timeout: "120s"
     nginx.org/proxy-read-timeout: "60s"
