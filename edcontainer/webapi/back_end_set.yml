@@ -3,4 +3,4 @@ kind: BackendConfig
 metadata:
   name: beconfig
 spec:
-  timeoutSec: 28
+  timeoutSec: 60
