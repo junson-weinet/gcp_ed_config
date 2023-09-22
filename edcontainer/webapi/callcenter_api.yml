@@ -100,8 +100,8 @@ metadata:
   name: callcenter-sc            #服务名字
   namespace: edapi               #命名空间
   annotations:
-    beta.cloud.google.com/backend-config: '{"ports": {"10001": "beconfig"}}'
-    cloud.google.com/backend-config: '{"ports": {"10001": "beconfig"}}'  #一定要加这个注释，根据to-backendconfig.yml设定超时时间，否则socket会每30s超时一次
+    beta.cloud.google.com/backend-config: '{"default": "beconfig"}'
+    cloud.google.com/backend-config: '{"default": "beconfig"}'  #一定要加这个注释，根据to-backendconfig.yml设定超时时间，否则socket会每30s超时一次
 spec:
   selector:
     app: callcenter-api
