@@ -97,7 +97,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: warning-svc
+            name: callcenter-svc
             port:
               number: 10001
   - host: "edco.cdweinet.com"
