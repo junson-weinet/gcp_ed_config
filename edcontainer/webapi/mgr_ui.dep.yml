@@ -76,8 +76,6 @@ kind: Service
 metadata:
   name: edco-ui-svc
   namespace: edapi
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
   labels:
     app.kubernetes.io/name: edco-ui
 spec:

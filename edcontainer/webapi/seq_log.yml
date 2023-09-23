@@ -60,8 +60,6 @@ kind: Service
 metadata:
   name: seq-svc           #��������
   namespace: edapi       #�����ռ�
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
 spec:
   selector:
     app: seq-log           #        
