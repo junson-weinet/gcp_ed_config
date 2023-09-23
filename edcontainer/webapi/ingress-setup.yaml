@@ -187,13 +187,13 @@ spec:
       #       name: system-svc
       #       port:
       #         number: 10001
-      # - path: /user/
-      #   pathType: Prefix
-      #   backend:
-      #     service:
-      #       name: user-svc
-      #       port:
-      #         number: 10001
+      - path: /user/
+        pathType: Prefix
+        backend:
+          service:
+            name: user-svc
+            port:
+              number: 10001
       # - path: /warning/
       #   pathType: Prefix
       #   backend:
