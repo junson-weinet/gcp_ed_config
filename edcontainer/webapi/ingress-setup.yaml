@@ -208,13 +208,6 @@ spec:
             name: warning-svc
             port:
               number: 10001
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: callcenter-svc
-            port:
-              number: 10001
   # - host: "agapi.cdweinet.com"
   #   http:
   #     paths:
