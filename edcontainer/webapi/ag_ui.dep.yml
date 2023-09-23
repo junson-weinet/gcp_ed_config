@@ -76,6 +76,8 @@ kind: Service
 metadata:
   name: edag-ui-svc
   namespace: edapi
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
   labels:
     app.kubernetes.io/name: edag-ui
 spec:
