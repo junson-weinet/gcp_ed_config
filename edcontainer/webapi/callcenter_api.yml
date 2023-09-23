@@ -107,8 +107,8 @@ spec:
     app: callcenter-api
   type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
   ports:
-  - port: 10001  
-    targetPort: 10001
+  - targetPort: 10001
+    port: 10001
     name: edapi
   - protocol: TCP   
     port: 10002  
