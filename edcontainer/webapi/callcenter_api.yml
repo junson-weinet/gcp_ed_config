@@ -105,7 +105,7 @@ metadata:
 spec:
   selector:
     app: callcenter-api
-  sessionAffinity: ClientIp
+  sessionAffinity: ClientIP
   type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
   ports:
   - targetPort: 10001
