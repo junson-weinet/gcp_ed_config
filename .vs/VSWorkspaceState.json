@@ -5,6 +5,6 @@
     "\\edcontainer\\webapi",
     "\\edcontainer\\webapi\\conf"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\mgr_ui.dep.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\activity_api.yml",
   "PreviewInSolutionExplorer": false
 }
