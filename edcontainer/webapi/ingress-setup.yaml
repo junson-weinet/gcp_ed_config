@@ -4,28 +4,14 @@ metadata:
   name: ed-router
   namespace: edapi
   annotations:
-    cloud.google.com/neg: "nginx"
-    cloud.google.com/backend-config: '{"default": "to-backendconfig"}'
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/x-forwarded-prefix: "/"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    cloud.google.com/backend-config: '{"default": "be-config"}'
+    kubernetes.io/ingress.class: "gce"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
-    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
-    nginx.org/websocket-services: "callcenter-svc"
-    nginx.org/keepalive: "Upgrade"
-    nginx.org/proxy-connect-timeout: "120s"
-    nginx.org/proxy-read-timeout: "60s"
-    nginx.ingress.kubernetes.io/server-snippets: |
-      location / {
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_http_version 1.1;
-        proxy_set_header X-Forwarded-Host $http_host;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-For $remote_addr;
-        proxy_set_header Host $host;
-        proxy_set_header Connection "";
-        proxy_cache_bypass $http_upgrade;
-        }
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-buffering: "on"
+    nginx.ingress.kubernetes.io/proxy-http-version: "1.1"
+    nginx.ingress.kubernetes.io/connection-proxy-header: "keep-alive"
 spec:
   rules:
   - host: "api.cdweinet.com"
@@ -108,13 +94,6 @@ spec:
             name: warning-svc
             port:
               number: 10001
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: warning-svc
-            port:
-              number: 10001
   - host: "edco.cdweinet.com"
     http:
       paths:
@@ -125,20 +104,13 @@ spec:
             name: backgroundtasks-svc
             port:
               number: 10001
-      - path: /callcenter/
-        pathType: Prefix
-        backend:
-          service:
-            name: callcenter-svc
-            port:
-              number: 10001
-      - path: /srdemo/
-        pathType: Prefix
-        backend:
-          service:
-            name: edco-ui-svc
-            port:
-              number: 8080
+      # - path: /wsdemo/
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: wsdemo-svc
+      #       port:
+      #         number: 10001
       - path: /
         pathType: Prefix
         backend:
@@ -204,4 +176,3 @@ spec:
             name: seq-svc
             port:
               number: 5342
-
