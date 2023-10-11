@@ -42,9 +42,6 @@ spec:
             mountPath: /app/appsettings.json
             subPath: appsettings.json
             readOnly: true
-          - name: secrets
-            mountPath: /app/appsettings.json
-            subPath: appsettings.json
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/gcp/sa_credentials.json
