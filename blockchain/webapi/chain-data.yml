@@ -45,7 +45,8 @@ spec:
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/gcp/sa_credentials.json
-          command: ["/bin/sh"]
+          stdin: true
+          tty: true
           securityContext:
             privileged: true
             capabilities:
