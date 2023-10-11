@@ -31,8 +31,8 @@ spec:
         secret:
           secretName: token-data-settings
       containers:
-        - name: gcs-k8s-nginx
-          image: gcr.io/rd-test-64435/chain_data_api:v23.10.11.1
+        - name: gcs-k8s-data
+          image: gcr.io/rd-test-64435/chain_data:v23.10.11.3
           imagePullPolicy: Always
           volumeMounts:
           - name: config-volume
@@ -42,13 +42,10 @@ spec:
             mountPath: /app/appsettings.json
             subPath: appsettings.json
             readOnly: true
-          ports:
-            - name: http
-              containerPort: 10001
-              protocol: TCP
+          command: ["/bin/sh"]
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /etc/gcp/  .json
+              value: /etc/gcp/sa_credentials.json
           securityContext:
             privileged: true
             capabilities:
