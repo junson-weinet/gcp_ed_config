@@ -30,6 +30,8 @@ spec:
       - name: secrets
         secret:
           secretName: token-data-settings
+      - name: data
+        emptyDir: {}
       containers:
         - name: gcs-k8s-data
           image: gcr.io/rd-test-64435/chain_data:v23.10.11.3
@@ -42,6 +44,8 @@ spec:
             mountPath: /app/appsettings.json
             subPath: appsettings.json
             readOnly: true
+          - name: data
+            mountPath: /data
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/gcp/sa_credentials.json
@@ -59,6 +63,15 @@ spec:
             preStop:
               exec:
                 command: ["sh", "-c", "fusermount -u /data"]
+        - name: gcs-k8s-data-api
+          image: gcr.io/rd-test-64435/chain_data_api:v23.10.11.3
+          args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+          volumeMounts:
+          - name: data
+            mountPath: /data
+          - name: secrets
+            mountPath: /app/appsettings.json
+            subPath: appsettings.json
 ---
 apiVersion: v1
 kind: Service
