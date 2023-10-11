@@ -48,7 +48,7 @@ spec:
               protocol: TCP
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /etc/gcp/sa_credentials.json
+              value: /etc/gcp/  .json
           securityContext:
             privileged: true
             capabilities:
