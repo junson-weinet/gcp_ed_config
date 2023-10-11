@@ -30,11 +30,9 @@ spec:
       - name: secrets
         secret:
           secretName: token-data-settings
-      - name: data
-        emptyDir: {}
       containers:
         - name: gcs-k8s-data
-          image: gcr.io/rd-test-64435/chain_data:v23.10.11.3
+          image: gcr.io/rd-test-64435/chain_data:v23.10.11.5
           imagePullPolicy: Always
           volumeMounts:
           - name: config-volume
@@ -44,13 +42,13 @@ spec:
             mountPath: /app/appsettings.json
             subPath: appsettings.json
             readOnly: true
-          - name: data
-            mountPath: /data
+          - name: secrets
+            mountPath: /app/appsettings.json
+            subPath: appsettings.json
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/gcp/sa_credentials.json
-          stdin: true
-          tty: true
+          args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
           securityContext:
             privileged: true
             capabilities:
@@ -59,20 +57,11 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: ["sh", "-c", "gcsfuse -o allow_other --implicit-dirs chain_data_as /data"]
+                command: ["sh", "-c", "mkdir /data && gcsfuse -o allow_other --implicit-dirs chain_data_as /data"]
             preStop:
               exec:
                 command: ["sh", "-c", "fusermount -u /data"]
-        - name: gcs-k8s-data-api
-          image: gcr.io/rd-test-64435/chain_data_api:v23.10.11.3
-          args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
-          volumeMounts:
-          - name: data
-            mountPath: /data
-          - name: secrets
-            mountPath: /app/appsettings.json
-            subPath: appsettings.json
----
+---     
 apiVersion: v1
 kind: Service
 metadata:
