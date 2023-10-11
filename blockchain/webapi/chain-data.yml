@@ -52,13 +52,13 @@ spec:
             capabilities:
               add:
                 - SYS_ADMIN
-          # lifecycle:
-          #   postStart:
-          #     exec:
-          #       command: ["sh", "-c", "mkdir /data && gcsfuse -o allow_other --implicit-dirs chain_data_as /data"]
-          #   preStop:
-          #     exec:
-          #       command: ["sh", "-c", "fusermount -u /data"]
+          lifecycle:
+            postStart:
+              exec:
+                command: ["sh", "-c", "mkdir /data && gcsfuse -o allow_other --implicit-dirs chain_data_as /data"]
+            preStop:
+              exec:
+                command: ["sh", "-c", "fusermount -u /data"]
 ---
 apiVersion: v1
 kind: Service
