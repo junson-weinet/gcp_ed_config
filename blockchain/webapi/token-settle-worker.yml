@@ -49,14 +49,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-usdc_erc20        #depolymet名称
+  name: settle-worker-usdc-erc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-usdc_erc20       #标签
+    app: settle-worker-usdc-erc20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-usdc_erc20
+      app: settle-worker-usdc-erc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -66,10 +66,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-usdc_erc20       #模板名称必填
+        app: settle-worker-usdc-erc20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-usdc_erc20      #镜像名称
+      - name: settle-worker-usdc-erc20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
@@ -96,14 +96,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-usdt_erc20        #depolymet名称
+  name: settle-worker-usdt-erc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-usdt_erc20       #标签
+    app: settle-worker-usdt-erc20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-usdt_erc20
+      app: settle-worker-usdt-erc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -113,10 +113,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-usdt_erc20       #模板名称必填
+        app: settle-worker-usdt-erc20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-usdt_erc20      #镜像名称
+      - name: settle-worker-usdt-erc20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
@@ -143,14 +143,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-gtt_erc20        #depolymet名称
+  name: settle-worker-gtt-erc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-gtt_erc20       #标签
+    app: settle-worker-gtt-erc20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-gtt_erc20
+      app: settle-worker-gtt-erc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -160,10 +160,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-gtt_erc20       #模板名称必填
+        app: settle-worker-gtt-erc20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-gtt_erc20      #镜像名称
+      - name: settle-worker-gtt-erc20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
@@ -237,14 +237,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-usdc_bep20        #depolymet名称
+  name: settle-worker-usdc-bep20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-usdc_bep20       #标签
+    app: settle-worker-usdc-bep20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-usdc_bep20
+      app: settle-worker-usdc-bep20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -254,10 +254,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-usdc_bep20       #模板名称必填
+        app: settle-worker-usdc-bep20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-usdc_bep20      #镜像名称
+      - name: settle-worker-usdc-bep20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
@@ -284,14 +284,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-usdt_bep20        #depolymet名称
+  name: settle-worker-usdt-bep20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-usdt_bep20       #标签
+    app: settle-worker-usdt-bep20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-usdt_bep20
+      app: settle-worker-usdt-bep20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -301,10 +301,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-usdt_bep20       #模板名称必填
+        app: settle-worker-usdt-bep20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-usdt_bep20      #镜像名称
+      - name: settle-worker-usdt-bep20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
@@ -378,14 +378,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-usdc_trc20        #depolymet名称
+  name: settle-worker-usdc-trc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-usdc_trc20       #标签
+    app: settle-worker-usdc-trc20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-usdc_trc20
+      app: settle-worker-usdc-trc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -395,10 +395,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-usdc_trc20       #模板名称必填
+        app: settle-worker-usdc-trc20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-usdc_trc20      #镜像名称
+      - name: settle-worker-usdc-trc20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
@@ -425,14 +425,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-usdt_trc20        #depolymet名称
+  name: settle-worker-usdt-trc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-usdt_trc20       #标签
+    app: settle-worker-usdt-trc20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-usdt_trc20
+      app: settle-worker-usdt-trc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -442,10 +442,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-usdt_trc20       #模板名称必填
+        app: settle-worker-usdt-trc20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-usdt_trc20      #镜像名称
+      - name: settle-worker-usdt-trc20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
@@ -472,14 +472,14 @@ spec:
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker-rmbb_trc20        #depolymet名称
+  name: settle-worker-rmbb-trc20        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker-rmbb_trc20       #标签
+    app: settle-worker-rmbb-trc20       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker-rmbb_trc20
+      app: settle-worker-rmbb-trc20
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -489,10 +489,10 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker-rmbb_trc20       #模板名称必填
+        app: settle-worker-rmbb-trc20       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker-rmbb_trc20      #镜像名称
+      - name: settle-worker-rmbb-trc20      #镜像名称
         resources:          ##CPU内存限制
          requests:
            cpu: 150m
