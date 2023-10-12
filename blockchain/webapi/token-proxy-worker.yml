@@ -25,7 +25,7 @@ spec:
       - name: proxy-worker-rate
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -71,7 +71,7 @@ spec:
       - name: proxy-worker-eth
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -117,7 +117,7 @@ spec:
       - name: proxy-worker-usdc-erc20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -163,7 +163,7 @@ spec:
       - name: proxy-worker-usdt-erc20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -209,7 +209,7 @@ spec:
       - name: proxy-worker-gtt-erc20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -255,7 +255,7 @@ spec:
       - name: proxy-worker-bnb
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -301,7 +301,7 @@ spec:
       - name: proxy-worker-usdc-bep20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -347,7 +347,7 @@ spec:
       - name: proxy-worker-usdt-bep20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -393,7 +393,7 @@ spec:
       - name: proxy-worker-trx
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -439,7 +439,7 @@ spec:
       - name: proxy-worker-usdc-trc20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -485,7 +485,7 @@ spec:
       - name: proxy-worker-usdt-trc20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -531,7 +531,7 @@ spec:
       - name: proxy-worker-rmbb-trc20
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
@@ -577,7 +577,7 @@ spec:
       - name: proxy-worker-btc
         resources:          ##CPU内存限制
          requests:
-           cpu: 250m
+           cpu: 150m
            memory: 200Mi
         image: gcr.io/rd-test-64435/chain_token_worker:v23.10.11.1
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
