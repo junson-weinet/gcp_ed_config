@@ -32,7 +32,7 @@ spec:
           secretName: token-data-settings
       containers:
         - name: gcs-k8s-data
-          image: gcr.io/rd-test-64435/chain_data_api:v23.10.11.3
+          image: gcr.io/rd-test-64435/chain_data_api:v23.10.13.5
           imagePullPolicy: Always
           volumeMounts:
           - name: config-volume
