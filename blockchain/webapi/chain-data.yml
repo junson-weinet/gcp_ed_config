@@ -46,18 +46,6 @@ spec:
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/gcp/sa_credentials.json
           args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
-          securityContext:
-            privileged: true
-            capabilities:
-              add:
-                - SYS_ADMIN
-          lifecycle:
-            postStart:
-              exec:
-                command: ["sh", "-c", "mkdir /data && gcsfuse -o allow_other --implicit-dirs chain_data_as /data"]
-            preStop:
-              exec:
-                command: ["sh", "-c", "fusermount -u /data"]
 ---     
 apiVersion: v1
 kind: Service
