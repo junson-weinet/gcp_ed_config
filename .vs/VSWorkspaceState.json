@@ -3,8 +3,7 @@
     "",
     "\\blockchain",
     "\\blockchain\\webapi",
-    "\\otc",
-    "\\otc\\webapi"
+    "\\blockchain\\webapi\\conf"
   ],
   "SelectedNode": "\\blockchain\\webapi\\trade.yml",
   "PreviewInSolutionExplorer": false
