@@ -5,6 +5,6 @@
     "\\blockchain\\webapi",
     "\\blockchain\\webapi\\conf"
   ],
-  "SelectedNode": "\\blockchain\\webapi\\trade.yml",
+  "SelectedNode": "\\blockchain\\webapi\\user.yml",
   "PreviewInSolutionExplorer": false
 }
