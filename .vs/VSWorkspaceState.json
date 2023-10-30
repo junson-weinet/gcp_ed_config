@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\blockchain",
-    "\\blockchain\\webapi",
-    "\\otc",
-    "\\otc\\webapi"
+    "\\edcontainer",
+    "\\edcontainer\\webapi",
+    "\\edcontainer\\webapi\\conf"
   ],
-  "SelectedNode": "\\blockchain\\webapi\\trade.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\user_api.yml",
   "PreviewInSolutionExplorer": false
 }
