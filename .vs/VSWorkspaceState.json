@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\blockchain",
-    "\\blockchain\\webapi",
-    "\\blockchain\\webapi\\conf"
+    ""
   ],
-  "SelectedNode": "\\blockchain\\webapi\\user.yml",
+  "SelectedNode": "\\C:\\WorkStation\\gcp_ed_config",
   "PreviewInSolutionExplorer": false
 }
