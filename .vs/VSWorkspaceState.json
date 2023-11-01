@@ -1,17 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\blockchain",
-    "\\blockchain\\webapi",
-    "\\edcontainer",
-    "\\edcontainer\\data-redis",
-    "\\edcontainer\\data-redis\\conf",
-    "\\edcontainer\\webapi",
-    "\\edcontainer\\webapi\\conf",
-    "\\edcontainer\\webapi\\mq",
-    "\\otc",
-    "\\otc\\webapi"
+    ""
   ],
-  "SelectedNode": "\\blockchain\\webapi\\user.yml",
+  "SelectedNode": "\\C:\\Work\\Project\\GIT\\gcp_ed_config",
   "PreviewInSolutionExplorer": false
 }

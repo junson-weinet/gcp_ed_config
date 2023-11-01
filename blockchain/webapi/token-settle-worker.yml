@@ -2,14 +2,14 @@
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: settle-worker        #depolymet名称
+  name: settle-worker-eth        #depolymet名称
   namespace: token-api    #命名空间
   labels:
-    app: settle-worker       #标签
+    app: settle-worker-eth       #标签
 spec:
   selector:
     matchLabels:
-      app: settle-worker
+      app: settle-worker-eth
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -19,23 +19,22 @@ spec:
   template:
     metadata:
       labels:
-        app: settle-worker       #模板名称必填
+        app: settle-worker-eth       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: settle-worker      #镜像名称
+      - name: settle-worker-eth      #镜像名称
         resources:          ##CPU内存限制
-         limits:
-           cpu: 500m
-           memory: 600Mi
          requests:
-           cpu: 250m
-           memory: 300Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.7.20.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "eth"
         args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
@@ -45,6 +44,524 @@ spec:
       - name: secrets
         secret:
           secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-usdc-erc20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-usdc-erc20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-usdc-erc20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-usdc-erc20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-usdc-erc20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "usdc_erc20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-usdt-erc20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-usdt-erc20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-usdt-erc20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-usdt-erc20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-usdt-erc20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "usdt_erc20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-gtt-erc20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-gtt-erc20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-gtt-erc20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-gtt-erc20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-gtt-erc20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "gtt_erc20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-bnb        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-bnb       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-bnb
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-bnb       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-bnb      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "bnb"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-usdc-bep20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-usdc-bep20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-usdc-bep20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-usdc-bep20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-usdc-bep20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "usdc_bep20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-usdt-bep20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-usdt-bep20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-usdt-bep20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-usdt-bep20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-usdt-bep20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "usdt_bep20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-trx        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-trx       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-trx
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-trx       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-trx      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "trx"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-usdc-trc20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-usdc-trc20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-usdc-trc20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-usdc-trc20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-usdc-trc20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "usdc_trc20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-usdt-trc20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-usdt-trc20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-usdt-trc20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-usdt-trc20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-usdt-trc20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "usdt_trc20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-rmbb-trc20        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-rmbb-trc20       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-rmbb-trc20
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-rmbb-trc20       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-rmbb-trc20      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "rmbb_trc20"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+---
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: settle-worker-btc        #depolymet名称
+  namespace: token-api    #命名空间
+  labels:
+    app: settle-worker-btc       #标签
+spec:
+  selector:
+    matchLabels:
+      app: settle-worker-btc
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: settle-worker-btc       #模板名称必填
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: settle-worker-btc      #镜像名称
+        resources:          ##CPU内存限制
+         requests:
+           cpu: 100m
+           memory: 100Mi
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.10.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: token #局策略可使用configMap的配置Key，
+          value: "btc"
+        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        volumeMounts:   #挂载volumes中定义的磁盘
+        - name: secrets
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+      volumes:
+      - name: secrets
+        secret:
+          secretName: settle-worker-settings           #配置文件名称
+
 # ---
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler

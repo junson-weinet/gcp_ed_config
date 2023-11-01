@@ -104,13 +104,13 @@ spec:
             name: backgroundtasks-svc
             port:
               number: 10001
-      - path: /callcenter/
-        pathType: Prefix
-        backend:
-          service:
-            name: callcenter-svc
-            port:
-              number: 10001
+      # - path: /wsdemo/
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: wsdemo-svc
+      #       port:
+      #         number: 10001
       - path: /
         pathType: Prefix
         backend:
