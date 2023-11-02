@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\edcontainer",
+    "\\edcontainer\\webapi",
+    "\\edcontainer\\webapi\\conf"
   ],
-  "SelectedNode": "\\C:\\Work\\Project\\GIT\\gcp_ed_config",
+  "SelectedNode": "\\edcontainer\\webapi\\credit_api.yml",
   "PreviewInSolutionExplorer": false
 }
