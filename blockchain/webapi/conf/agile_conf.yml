@@ -49,12 +49,11 @@ spec:
               cpu: 250m
               memory: 300Mi
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
   name: agile-svc
-  namespace: token-api       
+  namespace: token-api
 spec:
   selector:
     app: agile-conf
