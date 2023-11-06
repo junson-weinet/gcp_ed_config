@@ -27,7 +27,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -73,7 +73,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -119,7 +119,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -165,7 +165,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -211,7 +211,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -257,7 +257,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -303,7 +303,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -349,7 +349,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -395,7 +395,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -441,7 +441,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -487,7 +487,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -533,7 +533,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
@@ -579,7 +579,7 @@ spec:
          requests:
            cpu: 100m
            memory: 100Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.1
+        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.6.2
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
