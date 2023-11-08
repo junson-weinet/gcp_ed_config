@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\edcontainer",
+    "\\edcontainer\\webapi"
   ],
-  "SelectedNode": "\\C:\\WorkStation\\gcp_ed_config",
+  "SelectedNode": "\\edcontainer\\webapi\\mgr_ui.dep.yml",
   "PreviewInSolutionExplorer": false
 }
