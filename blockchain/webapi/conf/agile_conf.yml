@@ -33,6 +33,7 @@ spec:
                   key: config_json
           ports:
           - containerPort: 5000
+            protocol: TCP
           livenessProbe:
             httpGet:
               path: /home/sys
