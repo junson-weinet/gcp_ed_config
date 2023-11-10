@@ -163,7 +163,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: edco-ui-svc
+            name: edag-ui-svc
             port:
               number: 8080 
   - host: "seq.cdweinet.com"
