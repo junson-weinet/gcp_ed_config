@@ -1,13 +1,17 @@
 {
   "ExpandedNodes": [
     "",
+    "\\blockchain",
+    "\\blockchain\\webapi",
     "\\edcontainer",
     "\\edcontainer\\data-mssql",
     "\\edcontainer\\data-mssql\\conf",
     "\\edcontainer\\data-redis",
     "\\edcontainer\\webapi",
-    "\\edcontainer\\webapi\\conf"
+    "\\edcontainer\\webapi\\conf",
+    "\\otc",
+    "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\data-mssql\\conf\\data-mssql-storage.yml",
+  "SelectedNode": "\\otc\\webapi\\ingress-setup.yml",
   "PreviewInSolutionExplorer": false
 }
