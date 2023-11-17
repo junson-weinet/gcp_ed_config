@@ -5,7 +5,7 @@ metadata:
   namespace: edapi
   annotations:
     cloud.google.com/backend-config: '{"default": "be-config"}'
-    kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
