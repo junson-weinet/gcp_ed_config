@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\edcontainer",
-    "\\edcontainer\\webapi"
+    "\\edcontainer\\data-mssql",
+    "\\edcontainer\\data-mssql\\conf",
+    "\\edcontainer\\data-redis",
+    "\\edcontainer\\webapi",
+    "\\edcontainer\\webapi\\conf"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\cash_api.yml",
+  "SelectedNode": "\\edcontainer\\data-mssql\\conf\\data-mssql-storage.yml",
   "PreviewInSolutionExplorer": false
 }
