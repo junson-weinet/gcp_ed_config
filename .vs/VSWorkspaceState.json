@@ -11,6 +11,6 @@
     "\\otc",
     "\\otc\\webapi"
   ],
-  "SelectedNode": "\\otc\\webapi\\ingress-setup.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\cash_api.yml",
   "PreviewInSolutionExplorer": false
 }
