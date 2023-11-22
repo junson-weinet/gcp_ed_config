@@ -14,7 +14,7 @@ metadata:
     nginx.ingress.kubernetes.io/connection-proxy-header: "keep-alive"
 spec:
   rules:
-  - host: "api.cdweinet.com"
+  - host: "swjapi.cdweinet.com"
     http:
       paths:
       - path: /activities/
@@ -94,7 +94,7 @@ spec:
             name: warning-svc
             port:
               number: 10001
-  - host: "edco.cdweinet.com"
+  - host: "swjco.cdweinet.com"
     http:
       paths:
       - path: /hangfire/
@@ -118,7 +118,7 @@ spec:
             name: edco-ui-svc
             port:
               number: 8080
-  - host: "agapi.cdweinet.com"
+  - host: "swjagapi.cdweinet.com"
     http:
       paths:
       - path: /activities/
@@ -156,7 +156,7 @@ spec:
             name: user-svc
             port:
               number: 10001
-  - host: "edag.cdweinet.com"
+  - host: "swjag.cdweinet.com"
     http:
       paths:
       - path: /
@@ -166,7 +166,7 @@ spec:
             name: edag-ui-svc
             port:
               number: 8080 
-  - host: "seq.cdweinet.com"
+  - host: "swjseq.cdweinet.com"
     http:
       paths:
       - path: /
