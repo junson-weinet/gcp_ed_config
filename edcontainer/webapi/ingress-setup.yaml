@@ -158,6 +158,13 @@ spec:
             name: user-svc
             port:
               number: 10001
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: agile-svc
+            port:
+              number: 5000
   - host: "edag.cdweinet.com"
     http:
       paths:
