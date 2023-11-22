@@ -36,7 +36,7 @@ spec:
             protocol: TCP
           livenessProbe:
             httpGet:
-              path: /home/sys
+              path: /
               scheme: HTTP
               port: 5000
             initialDelaySeconds: 30
