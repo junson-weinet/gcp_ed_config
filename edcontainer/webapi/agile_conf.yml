@@ -25,7 +25,7 @@ spec:
             - name: "adminConsole"
               value: "true"
             - name: "db__provider"
-              value: "mysql"
+              value: "sqlserver"
             - name: "db__conn"
               valueFrom:
                 secretKeyRef:
