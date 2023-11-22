@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\blockchain\\webapi",
     "\\edcontainer",
-    "\\edcontainer\\webapi"
+    "\\edcontainer\\webapi",
+    "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\cash_api.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\ingress-setup.yaml",
   "PreviewInSolutionExplorer": false
 }
