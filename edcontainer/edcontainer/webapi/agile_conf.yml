@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agile-conf
+  namespace: edapi
+  labels:
+    app: agile-conf
+spec:
+  selector:
+    matchLabels:
+      app: agile-conf
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: agile-conf
+    spec:
+      containers:
+        - name: agile-conf
+          image: "kklldog/agile_config:latest"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: "Logging__LogLevel__Default"
+              value: "Debug"
+            - name: "Logging__LogLevel__System"
+              value: "Debug"
+            - name: "Logging__LogLevel__Microsoft"
+              value: "Debug"
+            - name: "TZ"
+              value: "Asia/Shanghai"
+            - name: "adminConsole"
+              value: "true"
+            - name: "db__provider"
+              value: "sqlserver"
+            - name: "db__conn"
+              valueFrom:
+                secretKeyRef:
+                  name: ed-appsettings
+                  key: agile-conn
+          ports:
+            - name: ui
+              containerPort: 5000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 5000
+            initialDelaySeconds: 180   ##启动后延时多久开始运行检测
+            periodSeconds: 120
+            timeoutSeconds: 5
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: agile-svc
+  namespace: edapi       
+spec:
+  selector:
+    app: agile-conf       
+  type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
+  ports:
+  - protocol: TCP   
+    port: 5000  
+    targetPort: 5000
+    name: ui
