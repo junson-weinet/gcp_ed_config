@@ -3,14 +3,11 @@
     "",
     "\\edcontainer",
     "\\edcontainer\\data-mssql",
-    "\\edcontainer\\data-redis",
-    "\\edcontainer\\data-redis\\conf",
     "\\edcontainer\\webapi",
     "\\edcontainer\\webapi\\conf",
     "\\edcontainer\\webapi\\mq",
-    "\\otc",
     "\\otc\\webapi"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\cash_api.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\user_api.yml",
   "PreviewInSolutionExplorer": false
 }
