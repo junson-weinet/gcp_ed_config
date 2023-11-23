@@ -57,7 +57,7 @@ spec:
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
           value: "User"
         - name: "SYS_SITE" #设置站台ID
-          value: "DEMO"
+          value: "SWJ"
         - name: "AgileConfig__name"    
           value: "client_user"
         volumeMounts:   #挂载volumes中定义的磁盘

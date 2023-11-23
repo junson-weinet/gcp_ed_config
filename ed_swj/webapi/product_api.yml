@@ -57,7 +57,7 @@ spec:
         - name: "AgileConfig__name"    
           value: "client_product"
         - name: "SYS_SITE" #设置站台ID
-          value: "DEMO"
+          value: "SWJ"
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
           mountPath: /app/appsettings.json
