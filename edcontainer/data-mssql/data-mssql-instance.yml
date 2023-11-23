@@ -1,7 +1,7 @@
-apiVersion: v1
-kind: Namespace
+apiVersion: v1 
+kind: Namespace   #创建独立的命名空间
 metadata:
-  name: cloudsql-ed
+  name: cloudsql-ed   
 --- 
 apiVersion: v1
 kind: Endpoints
