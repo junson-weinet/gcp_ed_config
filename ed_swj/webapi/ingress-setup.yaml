@@ -2,12 +2,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ed-router
-  namespace: edapi
+  namespace: swjapi
   annotations:
     cloud.google.com/backend-config: '{"default": "be-config"}'
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
@@ -16,7 +14,7 @@ metadata:
     nginx.ingress.kubernetes.io/connection-proxy-header: "keep-alive"
 spec:
   rules:
-  - host: "api.cdweinet.com"
+  - host: "swjapi.cdweinet.com"
     http:
       paths:
       - path: /activities/
@@ -33,7 +31,7 @@ spec:
             name: callcenter-svc
             port:
               number: 10001
-      - path: /cash/([a-z]{2}-[a-z]{2}/|swagger/?)
+      - path: /cash/
         pathType: Prefix
         backend:
           service:
@@ -96,7 +94,7 @@ spec:
             name: warning-svc
             port:
               number: 10001
-  - host: "edco.cdweinet.com"
+  - host: "swjco.cdweinet.com"
     http:
       paths:
       - path: /hangfire/
@@ -120,7 +118,7 @@ spec:
             name: edco-ui-svc
             port:
               number: 8080
-  - host: "agapi.cdweinet.com"
+  - host: "swjagapi.cdweinet.com"
     http:
       paths:
       - path: /activities/
@@ -158,14 +156,7 @@ spec:
             name: user-svc
             port:
               number: 10001
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: agile-svc
-            port:
-              number: 5000
-  - host: "edag.cdweinet.com"
+  - host: "swjag.cdweinet.com"
     http:
       paths:
       - path: /
@@ -175,7 +166,7 @@ spec:
             name: edag-ui-svc
             port:
               number: 8080 
-  - host: "seq.cdweinet.com"
+  - host: "swjseq.cdweinet.com"
     http:
       paths:
       - path: /

@@ -3,10 +3,10 @@ apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
   name: user-api        #depolymet名称
-  namespace: edapi    #命名空间
+  namespace: swjapi    #命名空间
   labels:
     app: user-api       #标签
-    podtype: edapi
+    podtype: swjapi
 spec:
   selector:
     matchLabels:
@@ -21,7 +21,7 @@ spec:
     metadata:
       labels:
         app: user-api       #模板名称必填
-        podtype: edapi
+        podtype: swjapi
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
       - name: user-api      #镜像名称
@@ -32,7 +32,7 @@ spec:
         #  requests:
         #    cpu: 250m
         #    memory: 300Mi
-        image: gcr.io/rd-test-64435/ed_user_api:v23.11.21.2  #镜像地址 
+        image: gcr.io/rd-test-64435/ed_user_api:v23.11.17.5  #镜像地址 
         #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
@@ -86,7 +86,7 @@ spec:
 # kind: HorizontalPodAutoscaler
 # metadata:
 #   name: user-api
-#   namespace: edapi
+#   namespace: swjapi
 # spec:
 #   maxReplicas: 10
 #   minReplicas: 1
@@ -101,7 +101,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: user-svc            #服务名字
-  namespace: edapi         #命名空间
+  namespace: swjapi         #命名空间
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
 spec:
@@ -112,7 +112,7 @@ spec:
   - protocol: TCP   
     port: 10001  
     targetPort: 10001
-    name: edapi
+    name: swjapi
   - protocol: TCP   
     port: 10002  
     targetPort: 10002
