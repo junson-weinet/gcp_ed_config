@@ -8,7 +8,7 @@ kind: Endpoints
 metadata:
   name: ed-cloudsql-svc
   namespace: cloudsql-ed
-subsets:
+subsets: 
   - addresses:
       - ip: 34.87.46.208
     ports:
