@@ -50,6 +50,8 @@ spec:
           value: "client_msg"
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
           value: "Message"
+        - name: "SYS_SITE" #设置站台ID
+          value: "SWJ"
         volumeMounts:   #挂载volumes中定义的磁盘
         - name: secrets
           mountPath: /app/appsettings.json
