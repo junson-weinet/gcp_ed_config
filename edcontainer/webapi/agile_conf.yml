@@ -17,15 +17,11 @@ spec:
     spec:
       containers:
         - name: agile-conf
-          image: "kklldog/agile_config:latest"
+          image: "kklldog/agile_config:v-1.7.3"
           imagePullPolicy: IfNotPresent
           env:
             - name: "Logging__LogLevel__Default"
-              value: "Debug"
-            - name: "Logging__LogLevel__System"
-              value: "Debug"
-            - name: "Logging__LogLevel__Microsoft"
-              value: "Debug"
+              value: "Information"
             - name: "TZ"
               value: "Asia/Shanghai"
             - name: "adminConsole"

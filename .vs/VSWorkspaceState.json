@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\blockchain\\webapi",
+    "\\blockchain\\webapi\\conf",
     "\\edcontainer",
     "\\edcontainer\\data-mssql",
     "\\edcontainer\\webapi",
-    "\\edcontainer\\webapi\\conf",
-    "\\edcontainer\\webapi\\mq",
-    "\\otc\\webapi"
+    "\\ed_swj",
+    "\\ed_swj\\data-mssql",
+    "\\ed_swj\\webapi",
+    "\\ed_swj\\webapi\\mq"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\user_api.yml",
+  "SelectedNode": "\\ed_swj\\data-mssql\\data-mssql-instance.yml",
   "PreviewInSolutionExplorer": false
 }

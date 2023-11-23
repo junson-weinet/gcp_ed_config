@@ -1,15 +1,15 @@
 ##Deployment部署文件
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
-metadata:   
-  name: collect-worker        #depolymet名称
-  namespace: token-api    #命名空间
+metadata:
+  name: proxy-tunnel        #depolymet名称
+  namespace: swjapi    #命名空间
   labels:
-    app: collect-worker       #标签
+    app: proxy-tunnel       #标签
 spec:
   selector:
     matchLabels:
-      app: collect-worker
+      app: proxy-tunnel
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -19,43 +19,45 @@ spec:
   template:
     metadata:
       labels:
-        app: collect-worker       #模板名称必填
+        app: proxy-tunnel       #模板名称必填
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: collect-worker      #镜像名称
-        resources:          ##CPU内存限制
-         limits:
-           cpu: 500m
-           memory: 600Mi
-         requests:
-           cpu: 250m
-           memory: 300Mi
-        image: gcr.io/rd-test-64435/chain_token_worker:v23.11.23.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+      - name: proxy-tunnel      #镜像名称
+        image: gcr.io/rd-test-64435/chain_tunnel:v23.6.26.12  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        ports:           
+        - containerPort: 10001    #对service暴露端口
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
-        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
+        - name: PrivateKey
+          valueFrom:
+            secretKeyRef:
+              name: proxy-tunnel-key
+              key: key
         volumeMounts:   #挂载volumes中定义的磁盘
-        - name: secrets
+        - name: settings
           mountPath: /app/appsettings.json
           subPath: appsettings.json
       volumes:
-      - name: secrets
+      - name: settings
         secret:
-          secretName: collect-worker-settings           #配置文件名称
-# ---
-# apiVersion: autoscaling/v1
-# kind: HorizontalPodAutoscaler
-# metadata:
-#   name: hpa-collect-worker
-#   namespace: token-api
-# spec:
-#   maxReplicas: 10
-#   minReplicas: 1
-#   scaleTargetRef:
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     name: collect-worker
-#   targetCPUUtilizationPercentage: 95
+          secretName: proxy-tunnel-settings           #配置文件名称
+---
+#定义对外访问的服务名字和端口
+apiVersion: v1
+kind: Service
+metadata:
+  name: proxy-service            #服务名字
+  namespace: swjapi         #命名空间
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  selector:
+    app: proxy-tunnel           #
+  type: ClusterIP
+  ports:
+  - protocol: TCP   
+    port: 1433  
+    targetPort: 10001

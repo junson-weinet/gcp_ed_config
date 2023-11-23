@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seq-log
+  namespace: swjapi
+  labels:
+    app: seq-log
+spec:
+  selector:
+    matchLabels:
+      app: seq-log
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: seq-log
+    spec:
+      containers:
+        - name: seq-log
+          image: "datalust/seq:latest"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: "ACCEPT_EULA"
+              value: "Y"
+            - name: "services__Serilog__MinimumLevel"
+              value: "Warning"
+          ports:
+            - name: ingestion
+              containerPort: 5341
+              protocol: TCP
+            - name: ui
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 80
+            initialDelaySeconds: 180
+            periodSeconds: 120
+            timeoutSeconds: 10
+          volumeMounts:
+          - name: seq-data
+            mountPath: /data
+            subPath: ""
+          resources:
+            limits:
+              cpu: 500m
+              memory: 600Mi
+            requests:
+              cpu: 250m
+              memory: 300Mi
+      volumes:
+      - name: seq-data
+        emptyDir: {}
+---
+#���������ʵķ������ֺͶ˿�
+apiVersion: v1
+kind: Service
+metadata:
+  name: seq-svc           #��������
+  namespace: swjapi       #�����ռ�
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  selector:
+    app: seq-log           #        
+  type: ClusterIP     #ע���µ�GCP����Ҫָ��Ϊ ClusterIP ���ԭʼ��NodePort �����routerһֱ������ 
+  ports:
+  - protocol: TCP   
+    port: 5341  
+    targetPort: 5341
+    name: ingestion
+  - protocol: TCP   
+    port: 5342  
+    targetPort: 80
+    name: ui
+
