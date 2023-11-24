@@ -37,6 +37,9 @@ spec:
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
         ports:           
         - containerPort: 9090    #对service暴露端口
+          name: thrift-port
+        - containerPort: 5000
+          name: health-check
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
         - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
           value: "TokenProxy"
