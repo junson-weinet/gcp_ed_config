@@ -55,7 +55,7 @@ spec:
         - name: "SERVER_IP"
           value: "34.143.180.163"
         - name: "SERVER_PORT"
-          value: "15501"
+          value: 15501
         - name: "SERVER_PWD"
           value: "1qazxsw23edc"
         - name: "SERVER_SECRET"    
