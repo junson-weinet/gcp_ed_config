@@ -53,13 +53,25 @@ spec:
           periodSeconds: 30
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
         - name: "SERVER_IP"
-          value: "34.143.180.163"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-server
         - name: "SERVER_PORT"
-          value: "15501"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-port
         - name: "SERVER_PWD"
-          value: "1qazxsw23edc"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-pwd
         - name: "SERVER_SECRET"    
-          value: "!Q@W#E$R"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-secret
         volumeMounts:
         - name: varlog
           mountPath: /var/log
