@@ -46,11 +46,11 @@ spec:
         - containerPort: 1465
         - containerPort: 1466
         - containerPort: 1467
-        livenessProbe:
-          tcpSocket:
-            port: 1461
-          initialDelaySeconds: 60
-          periodSeconds: 30
+        # livenessProbe:
+        #   tcpSocket:
+        #     port: 1461
+        #   initialDelaySeconds: 60
+        #   periodSeconds: 30
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
         - name: "SERVER_IP"
           valueFrom:
