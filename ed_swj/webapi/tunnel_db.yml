@@ -38,7 +38,7 @@ spec:
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
-        ports:           
+        ports:
         - containerPort: 1461
         - containerPort: 1462
         - containerPort: 1463
