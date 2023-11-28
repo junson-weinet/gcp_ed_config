@@ -1,0 +1,145 @@
+##Deployment部署文件
+apiVersion: apps/v1     #接口版本
+kind: Deployment        #接口类型
+metadata:   
+  name: tunnel-db        #depolymet名称
+  namespace: swjapi    #命名空间
+  labels:
+    app: tunnel-db       #标签
+    podtype: swjapi
+spec:
+  selector:
+    matchLabels:
+      app: tunnel-db
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0     #更新时候最大无效pod数量
+      maxSurge: 1           #更新时候每次最多增加pod数量
+  template:
+    metadata:
+      labels:
+        app: tunnel-db       #模板名称必填
+        podtype: swjapi
+    spec:                   #定义容器模板，该模板可以包含多个容器
+      containers:
+      - name: tunnel-db      #镜像名称
+        #resources:          ##CPU内存限制
+        #  limits:
+        #    cpu: 500m
+        #    memory: 600Mi
+        #  requests:
+        #    cpu: 250m
+        #    memory: 300Mi
+        image: gcr.io/rd-test-64435/tun-gke:2sv7  #镜像地址 
+        #如果command和args均没有写，那么用Docker默认的配置。
+        #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
+        #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
+        #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
+        imagePullPolicy: IfNotPresent  #如果不存在则拉取
+        ports:           
+        - containerPort: 1461
+        - containerPort: 1462
+        - containerPort: 1463
+        - containerPort: 1464
+        - containerPort: 1465
+        - containerPort: 1466
+        - containerPort: 1467
+        livenessProbe:
+          tcpSocket:
+            port: 1461
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
+        - name: "SERVER_IP"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-server
+        - name: "SERVER_PORT"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-port
+        - name: "SERVER_PWD"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-pwd
+        - name: "SERVER_SECRET"    
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-secret
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+      imagePullSecrets:
+      - name: img-secret
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+# ---
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: tunnel-db
+#   namespace: swjapi
+# spec:
+#   maxReplicas: 10
+#   minReplicas: 1
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: tunnel-db
+#   targetCPUUtilizationPercentage: 95
+---
+#定义对外访问的服务名字和端口
+apiVersion: v1
+kind: Service
+metadata:
+  name: tunnel-db-svc            #服务名字
+  namespace: swjapi         #命名空间
+spec:
+  selector:
+    app: tunnel-db
+  type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
+  ports:
+  - protocol: TCP   
+    port: 1461  
+    targetPort: 1461
+    name: d62
+  - protocol: TCP   
+    port: 1462 
+    targetPort: 1462
+    name: d63
+  - protocol: TCP   
+    port: 1463  
+    targetPort: 1463
+    name: d64
+  - protocol: TCP   
+    port: 1464  
+    targetPort: 1464
+    name: d61
+  - protocol: TCP   
+    port: 1465 
+    targetPort: 1465
+    name: d65
+  - protocol: TCP   
+    port: 1466  
+    targetPort: 1466
+    name: d66
+  - protocol: TCP   
+    port: 1467  
+    targetPort: 1467
+    name: d67
+
+
