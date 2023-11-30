@@ -116,19 +116,19 @@ spec:
   - protocol: TCP   
     port: 1461  
     targetPort: 1461
-    name: d62
+    name: d61
   - protocol: TCP   
     port: 1462 
     targetPort: 1462
-    name: d63
+    name: d62
   - protocol: TCP   
     port: 1463  
     targetPort: 1463
-    name: d64
+    name: d63
   - protocol: TCP   
     port: 1464  
     targetPort: 1464
-    name: d61
+    name: d64
   - protocol: TCP   
     port: 1465 
     targetPort: 1465
