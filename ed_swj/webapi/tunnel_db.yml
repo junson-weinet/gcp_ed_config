@@ -2,14 +2,15 @@
 apiVersion: apps/v1     #接口版本
 kind: Deployment        #接口类型
 metadata:   
-  name: cash-api        #depolymet名称
+  name: tunnel-db        #depolymet名称
   namespace: swjapi    #命名空间
   labels:
-    app: cash-api       #标签
+    app: tunnel-db       #标签
+    podtype: swjapi
 spec:
   selector:
     matchLabels:
-      app: cash-api
+      app: tunnel-db
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -19,10 +20,11 @@ spec:
   template:
     metadata:
       labels:
-        app: cash-api       #模板名称必填
+        app: tunnel-db       #模板名称必填
+        podtype: swjapi
     spec:                   #定义容器模板，该模板可以包含多个容器
       containers:
-      - name: cash-api      #镜像名称
+      - name: tunnel-db      #镜像名称
         #resources:          ##CPU内存限制
         #  limits:
         #    cpu: 500m
@@ -30,38 +32,47 @@ spec:
         #  requests:
         #    cpu: 250m
         #    memory: 300Mi
-        image: gcr.io/rd-test-64435/ed_cash_api:v23.11.24.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+        image: gcr.io/rd-test-64435/tun-gke:2sv8  #镜像地址 
+        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
         imagePullPolicy: IfNotPresent  #如果不存在则拉取
-        ports:           
-        - containerPort: 10001    #对service暴露端口
-        - containerPort: 10002 
-        livenessProbe:   #表示container是否处于live状态。如果LivenessProbe失败，LivenessProbe将会通知kubelet对应的container不健康了。
-                         #随后kubelet将kill掉container，并根据RestarPolicy进行进一步的操作。默认情况下LivenessProbe在第一次检测之前初始化值为Success，
-                         #如果container没有提供LivenessProbe，则也认为是Success；
-          httpGet:
-            path: /    #如果没有心跳检测接口就为/
-            scheme: HTTP
-            port: 10001
-          initialDelaySeconds: 180   ##启动后延时多久开始运行检测
-          periodSeconds: 120
-          timeoutSeconds: 5
+        ports:
+        - containerPort: 1461
+        - containerPort: 1462
+        - containerPort: 1463
+        - containerPort: 1464
+        - containerPort: 1465
+        - containerPort: 1466
+        - containerPort: 1467
+        # livenessProbe:
+        #   tcpSocket:
+        #     port: 1461
+        #   initialDelaySeconds: 60
+        #   periodSeconds: 30
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
-        - name: "ASPNETCORE_ENVIRONMENT"    #ASPNETCORE
-          value: "Staging"
-        - name: "SYS_MODULE" #局策略可使用configMap的配置Key，
-          value: "Cash"
-        - name: "AgileConfig__name"    
-          value: "client_cash"
-        - name: "SYS_SITE" #设置站台ID
-          value: "SWJ"
-        args: ["ASPNETCORE_ENVIRONMENT=Kubernetes", "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0"]
-        volumeMounts:   #挂载volumes中定义的磁盘
-        - name: secrets
-          mountPath: /app/appsettings.json
-          subPath: appsettings.json
+        - name: "SERVER_IP"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-server
+        - name: "SERVER_PORT"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-port
+        - name: "SERVER_PWD"
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-pwd
+        - name: "SERVER_SECRET"    
+          valueFrom:
+           secretKeyRef:
+             name: ed-appsettings
+             key: tun-secret
+        volumeMounts:
         - name: varlog
           mountPath: /var/log
         - name: varlibdockercontainers
@@ -70,9 +81,6 @@ spec:
       imagePullSecrets:
       - name: img-secret
       volumes:
-      - name: secrets
-        secret:
-          secretName: ed-appsettings           #配置文件名称
       - name: varlog
         hostPath:
           path: /var/log
@@ -83,7 +91,7 @@ spec:
 # apiVersion: autoscaling/v1
 # kind: HorizontalPodAutoscaler
 # metadata:
-#   name: cash-api
+#   name: tunnel-db
 #   namespace: swjapi
 # spec:
 #   maxReplicas: 10
@@ -91,27 +99,47 @@ spec:
 #   scaleTargetRef:
 #     apiVersion: apps/v1
 #     kind: Deployment
-#     name: cash-api
+#     name: tunnel-db
 #   targetCPUUtilizationPercentage: 95
 ---
 #定义对外访问的服务名字和端口
 apiVersion: v1
 kind: Service
 metadata:
-  name: cash-svc            #服务名字
+  name: tunnel-db-svc            #服务名字
   namespace: swjapi         #命名空间
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
 spec:
   selector:
-    app: cash-api           #        
+    app: tunnel-db
   type: ClusterIP     #注意新的GCP上需要指定为 ClusterIP 如果原始的NodePort 会出现router一直加载中 
   ports:
   - protocol: TCP   
-    port: 10001  
-    targetPort: 10001
-    name: swjapi
+    port: 1461  
+    targetPort: 1461
+    name: d62
   - protocol: TCP   
-    port: 10002  
-    targetPort: 10002
-    name: newthrift
+    port: 1462 
+    targetPort: 1462
+    name: d63
+  - protocol: TCP   
+    port: 1463  
+    targetPort: 1463
+    name: d64
+  - protocol: TCP   
+    port: 1464  
+    targetPort: 1464
+    name: d61
+  - protocol: TCP   
+    port: 1465 
+    targetPort: 1465
+    name: d65
+  - protocol: TCP   
+    port: 1466  
+    targetPort: 1466
+    name: d66
+  - protocol: TCP   
+    port: 1467  
+    targetPort: 1467
+    name: d67
+
+
