@@ -6,9 +6,8 @@
     "\\edcontainer\\webapi",
     "\\edcontainer\\webapi\\conf",
     "\\edcontainer\\webapi\\mq",
-    "\\ed_swj",
     "\\ed_swj\\webapi"
   ],
-  "SelectedNode": "\\ed_swj\\webapi\\cash_api.yml",
+  "SelectedNode": "\\edcontainer\\webapi\\activity_api.yml",
   "PreviewInSolutionExplorer": false
 }
