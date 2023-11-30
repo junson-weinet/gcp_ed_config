@@ -10,7 +10,7 @@ metadata:
   namespace: cloudsql-ed
 subsets: 
   - addresses:
-      - ip: 34.87.46.208
+      - ip: 10.111.0.7
     ports:
       - port: 1433
 --- 
