@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\edcontainer",
-    "\\edcontainer\\data-mssql",
-    "\\edcontainer\\webapi",
-    "\\edcontainer\\webapi\\conf",
-    "\\edcontainer\\webapi\\mq",
-    "\\ed_swj\\webapi"
+    "\\ed_swj",
+    "\\ed_swj\\webapi",
+    "\\ed_swj\\webapi\\conf",
+    "\\ed_swj\\webapi\\mq",
+    "\\swj\\data-mssql",
+    "\\swj\\data-mssql\\conf",
+    "\\swj\\data-redis\\conf",
+    "\\swj\\webapi",
+    "\\swj\\webapi\\conf"
   ],
-  "SelectedNode": "\\edcontainer\\webapi\\activity_api.yml",
+  "SelectedNode": "\\ed_swj\\webapi\\tunnel_db.yml",
   "PreviewInSolutionExplorer": false
 }
