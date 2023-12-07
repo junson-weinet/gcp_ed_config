@@ -2,17 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\edcontainer",
-    "\\edcontainer\\data-redis",
-    "\\edcontainer\\data-redis\\conf",
-    "\\edcontainer\\webapi",
-    "\\edcontainer\\webapi\\conf",
     "\\ed_swj",
     "\\ed_swj\\webapi",
-    "\\otc_release",
-    "\\otc_release\\webapi",
-    "\\otc_release\\webapi\\conf",
-    "\\swj"
+    "\\ed_swj\\webapi\\conf",
+    "\\ed_swj\\webapi\\mq"
   ],
-  "SelectedNode": "\\ed_swj\\webapi\\productproxy_api.yml",
   "PreviewInSolutionExplorer": false
 }
