@@ -49,6 +49,14 @@ spec:
           initialDelaySeconds: 300   ##启动后延时多久开始运行检测
           periodSeconds: 180
           timeoutSeconds: 5
+        readinessProbe:   
+          httpGet:
+            path: /hc    
+            scheme: HTTP
+            port: 10002
+          initialDelaySeconds: 5   ##启动后延时多久开始运行检测
+          periodSeconds: 600
+          timeoutSeconds: 10
         env:        ##通过环境变量的方式，直接传递pod=自定义Linux OS环境变量
         - name: "ASPNETCORE_ENVIRONMENT"    #ASPNETCORE
           value: "Staging"
