@@ -2,3 +2,4 @@
 *.sqlite-journal
 /.vs/gcp_ed_config3
 /.vs/gcp_ed_config/FileContentIndex
+blockchain/wireguard/vpnserver.yml
