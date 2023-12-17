@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\edcontainer",
+    "\\blockchain",
+    "\\blockchain\\webapi",
     "\\ed_swj",
     "\\ed_swj\\webapi",
-    "\\ed_swj\\webapi\\conf",
     "\\ed_swj\\webapi\\mq"
   ],
+  "SelectedNode": "\\blockchain\\webapi\\token-confirm-worker.yml",
   "PreviewInSolutionExplorer": false
 }
