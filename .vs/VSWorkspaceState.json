@@ -7,6 +7,6 @@
     "\\ed_swj\\webapi",
     "\\ed_swj\\webapi\\mq"
   ],
-  "SelectedNode": "\\blockchain\\webapi\\token-confirm-worker.yml",
+  "SelectedNode": "\\blockchain\\webapi\\token-settle-worker.yml",
   "PreviewInSolutionExplorer": false
 }
