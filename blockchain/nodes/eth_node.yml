@@ -5,7 +5,7 @@ metadata:
   namespace: token-api    #命名空间
 spec:
   selector:
-    app: ethereum-service           #
+    svc: ethereum-service           #
   ports:
     - name: ethnode
       protocol: TCP
@@ -18,7 +18,7 @@ metadata:
   name: ethereum-service
   namespace: token-api
   labels:
-    app: ethereum-service       #标签
+    svc: ethereum-service       #标签
 subsets: 
   - addresses:
       - ip: 67.198.180.26

@@ -5,7 +5,7 @@ metadata:
   namespace: token-api    #命名空间
 spec:
   selector:
-    app: tron-service
+    svc: tron-service
   ports:
     - name: node
       protocol: TCP
@@ -22,7 +22,7 @@ metadata:
   name: tron-service
   namespace: token-api
   labels:
-    app: tron-service       #标签
+    svc: tron-service       #标签
 subsets: 
   - addresses:
       - ip: 103.233.83.4
