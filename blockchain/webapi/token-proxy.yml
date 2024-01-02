@@ -24,7 +24,10 @@ spec:
       containers:
       - name: token-proxy      #镜像名称
         resources:          ##CPU内存限制
-         limits:
+          requests:
+           cpu: 100m
+           memory: 100Mi
+          limits:
            cpu: 1000m
            memory: 2048Mi
         image: gcr.io/rd-test-64435/chain_token_proxy:v23.12.27.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
