@@ -24,13 +24,13 @@ spec:
       containers:
       - name: token-proxy      #镜像名称
         resources:          ##CPU内存限制
-        #  limits:
-        #    cpu: 500m
-        #    memory: 600Mi
-         requests:
-           cpu: 300m
-           memory: 512Mi
-        image: gcr.io/rd-test-64435/chain_token_proxy:v23.12.26.3  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
+          requests:
+           cpu: 100m
+           memory: 100Mi
+          limits:
+           cpu: 1000m
+           memory: 2048Mi
+        image: gcr.io/rd-test-64435/chain_token_proxy:v23.12.27.1  #镜像地址        #如果command和args均没有写，那么用Docker默认的配置。
         #如果command写了，但args没有写，那么Docker默认的配置会被忽略而且仅仅执行.yaml文件的command（不带任何参数的）。
         #如果command没写，但args写了，那么Docker默认配置的ENTRYPOINT的命令行会被执行，但是调用的参数是.yaml中的args。
         #如果如果command和args都写了，那么Docker默认的配置被忽略，使用.yaml的配置。
