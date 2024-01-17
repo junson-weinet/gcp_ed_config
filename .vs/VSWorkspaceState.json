@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\blockchain",
-    "\\blockchain\\webapi",
-    "\\ed_swj",
-    "\\ed_swj\\webapi",
-    "\\ed_swj\\webapi\\mq"
+    ""
   ],
-  "SelectedNode": "\\blockchain\\webapi\\token-settle-worker.yml",
+  "SelectedNode": "\\C:\\Users\\admin\\Source\\Repos\\gcp_ed_config",
   "PreviewInSolutionExplorer": false
 }
