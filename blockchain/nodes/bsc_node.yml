@@ -21,7 +21,7 @@ metadata:
     svc: bsc-service       #标签
 subsets: 
   - addresses:
-      - ip: 67.229.230.154
+    - ip: 67.229.230.154
     ports:
-      - port: 8545 
-        name: bscnode
+    - port: 8545 
+      name: bscnode
