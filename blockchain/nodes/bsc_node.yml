@@ -4,8 +4,6 @@ metadata:
   name: bsc-service
   namespace: token-api    #命名空间
 spec:
-  selector:
-    svc: bsc-service           #
   ports:
     - name: bscnode
       protocol: TCP
@@ -23,5 +21,5 @@ subsets:
   - addresses:
     - ip: 67.229.230.154
     ports:
-    - port: 8545 
-      name: bscnode
+      - port: 8545 
+        name: bscnode
