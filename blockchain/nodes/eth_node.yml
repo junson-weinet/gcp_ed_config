@@ -21,7 +21,7 @@ metadata:
     svc: ethereum-service       #标签
 subsets: 
   - addresses:
-      - ip: 67.198.180.26
+      - ip: 67.198.221.98
     ports:
       - port: 8545 
         name: ethnode
