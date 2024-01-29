@@ -1,11 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ethereum-service
+  name: eth-service
   namespace: token-api    #命名空间
 spec:
   selector:
-    svc: ethereum-service           #
+    svc: eth-service           #
   ports:
     - name: ethnode
       protocol: TCP
@@ -15,10 +15,10 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: ethereum-service
+  name: eth-service
   namespace: token-api
   labels:
-    svc: ethereum-service       #标签
+    svc: eth-service       #标签
 subsets: 
   - addresses:
       - ip: 67.198.221.98

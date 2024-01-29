@@ -1,10 +1,27 @@
-# kind: "Service"
-# apiVersion: "v1"
-# metadata:
-#   name: "bsc-service"
-#   namespace: token-api    #命名空间
-# spec:
-#   type: ExternalName
-#   externalName: bsc-dataseed1.binance.org
-#   ports:
-#   - port: 443
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: bsc-service
+  namespace: token-api    #命名空间
+spec:
+  selector:
+    svc: bsc-service           #
+  ports:
+    - name: bscnode
+      protocol: TCP
+      port: 8545
+      targetPort: 8545
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: bsc-service
+  namespace: token-api
+  labels:
+    svc: bsc-service       #标签
+subsets: 
+  - addresses:
+      - ip: 67.229.230.154
+    ports:
+      - port: 8545 
+        name: bscnode
