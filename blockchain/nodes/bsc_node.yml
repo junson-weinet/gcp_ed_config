@@ -4,17 +4,5 @@ metadata:
   name: bsc-service
   namespace: token-api    #命名空间
 spec:
-  ports:
-    - port: 8545
-      targetPort: 8545
----
-kind: Endpoints
-apiVersion: v1
-metadata:
-  name: bsc-service
-  namespace: token-api
-subsets: 
-  - addresses:
-      - ip: 67.229.230.154
-    ports:
-      - port: 8545 
+  type: ExternalName
+  externalName: bsc.gttest13.com

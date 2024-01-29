@@ -4,20 +4,5 @@ metadata:
   name: eth-service
   namespace: token-api    #命名空间
 spec:
-  ports:
-    - name: ethnode
-      protocol: TCP
-      port: 8545
-      targetPort: 8545 
----
-kind: Endpoints
-apiVersion: v1
-metadata:
-  name: eth-service
-  namespace: token-api
-subsets: 
-  - addresses:
-    - ip: 67.198.221.98
-    ports:
-      - port: 8545 
-        name: ethnode
+  type: ExternalName
+  externalName: eth.gttest13.com
