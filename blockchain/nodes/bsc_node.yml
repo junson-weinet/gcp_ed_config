@@ -5,9 +5,7 @@ metadata:
   namespace: token-api    #命名空间
 spec:
   ports:
-    - name: bscnode
-      protocol: TCP
-      port: 8545
+    - port: 8545
       targetPort: 8545
 ---
 kind: Endpoints
@@ -17,7 +15,6 @@ metadata:
   namespace: token-api
 subsets: 
   - addresses:
-    - ip: 67.229.230.154
+      - ip: 67.229.230.154
     ports:
       - port: 8545 
-        name: bscnode
