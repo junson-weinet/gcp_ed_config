@@ -35,7 +35,7 @@ spec:
             name: trade-svc
             port:
               number: 80
-      - path: /userapi/
+      - path: /userapi/(swagger|user|externaluser)
         pathType: Prefix
         backend:
           service:

@@ -1,12 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\blockchain",
-    "\\blockchain\\webapi",
-    "\\ed_swj",
-    "\\ed_swj\\webapi",
-    "\\ed_swj\\webapi\\mq"
+    "\\blockchain"
   ],
-  "SelectedNode": "\\blockchain\\webapi\\token-proxy.yml",
+  "SelectedNode": "\\blockchain\\webapi",
   "PreviewInSolutionExplorer": false
 }

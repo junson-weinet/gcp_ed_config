@@ -1,10 +1,8 @@
-# kind: "Service"
-# apiVersion: "v1"
-# metadata:
-#   name: "bsc-service"
-#   namespace: token-api    #命名空间
-# spec:
-#   type: ExternalName
-#   externalName: bsc-dataseed1.binance.org
-#   ports:
-#   - port: 443
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: bsc-service
+  namespace: token-api    #命名空间
+spec:
+  type: ExternalName
+  externalName: bsc.gttest13.com

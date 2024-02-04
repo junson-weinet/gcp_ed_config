@@ -36,7 +36,7 @@ spec:
             limits:
               cpu: 800m
               memory: 1536Mi
-          image: gcr.io/rd-test-64435/chain_data_api:v23.12.25.1
+          image: gcr.io/rd-test-64435/chain_data_api:v24.1.17.2
           imagePullPolicy: Always
           volumeMounts:
           - name: config-volume

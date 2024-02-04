@@ -1,27 +1,8 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ethereum-service
+  name: eth-service
   namespace: token-api    #命名空间
 spec:
-  selector:
-    svc: ethereum-service           #
-  ports:
-    - name: ethnode
-      protocol: TCP
-      port: 8545
-      targetPort: 8545 
----
-kind: Endpoints
-apiVersion: v1
-metadata:
-  name: ethereum-service
-  namespace: token-api
-  labels:
-    svc: ethereum-service       #标签
-subsets: 
-  - addresses:
-      - ip: 67.198.180.26
-    ports:
-      - port: 8545 
-        name: ethnode
+  type: ExternalName
+  externalName: eth.gttest13.com
