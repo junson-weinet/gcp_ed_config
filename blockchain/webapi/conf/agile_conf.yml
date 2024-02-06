@@ -17,9 +17,11 @@ spec:
     spec:
       containers:
         - name: agile-conf
-          image: "kklldog/agile_config:latest"
+          image: "kklldog/agile_config:v-1.7.3"
           imagePullPolicy: IfNotPresent
           env:
+            - name: "Logging__LogLevel__Default"
+              value: "Warning"
             - name: "TZ"
               value: "Asia/Shanghai"
             - name: "adminConsole"
@@ -36,16 +38,13 @@ spec:
             protocol: TCP
           livenessProbe:
             httpGet:
-              path: /home/sys
+              path: /
               scheme: HTTP
               port: 5000
-            initialDelaySeconds: 30
+            initialDelaySeconds: 180
             periodSeconds: 120
             timeoutSeconds: 10
           resources:
-            limits:
-              cpu: 500m
-              memory: 600Mi
             requests:
               cpu: 250m
               memory: 300Mi
