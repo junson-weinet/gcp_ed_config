@@ -62,13 +62,13 @@ spec:
             capabilities:
               add:
                 - SYS_ADMIN
-          # lifecycle:
-          #   postStart:
-          #     exec:
-          #       command: ["sh", "-c", "gcsfuse -o allow_other --implicit-dirs otc-co /etc/nginx/conf.d && ln -s /etc/nginx/conf.d/ui /usr/share/nginx/ui && sleep 5 && nginx -s reload"]
-          #   preStop:
-          #     exec:
-          #       command: ["sh", "-c", "fusermount -u /etc/nginx/conf.d"]
+          lifecycle:
+            postStart:
+              exec:
+                command: ["sh", "-c", "gcsfuse -o allow_other --implicit-dirs otc-co /etc/nginx/conf.d && ln -s /etc/nginx/conf.d/ui /usr/share/nginx/ui && sleep 5 && nginx -s reload"]
+            preStop:
+              exec:
+                command: ["sh", "-c", "fusermount -u /etc/nginx/conf.d"]
 ---
 
 apiVersion: v1
