@@ -17,7 +17,6 @@ metadata:
         proxy_set_header Connection "upgrade";
         proxy_cache_bypass $http_upgrade;
       }
-
 spec:
   rules:
   - host: "coa026.t72yiq.com"
