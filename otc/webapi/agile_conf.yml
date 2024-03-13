@@ -38,20 +38,15 @@ spec:
                   name: ed-appsettings
                   key: agile-conn
           ports:
-            - name: ui
-              containerPort: 5000
+            - containerPort: 5000
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /
               port: ui
-            initialDelaySeconds: 180   ##Æô¶¯ºóÑÓÊ±¶à¾Ã¿ªÊ¼ÔËÐÐ¼ì²â
+            initialDelaySeconds: 180   ##ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ã¿ï¿½Ê¼ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½
             periodSeconds: 120
-            timeoutSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /
-              port: ui
+            timeoutSeconds: 5          
           resources:
             limits:
               cpu: 500m
@@ -68,10 +63,9 @@ metadata:
   namespace: otcapi       
 spec:
   selector:
-    app: agile-conf       
-  type: NodePort
+    app: agile-conf
+  type: ClusterIP
   ports:
   - protocol: TCP   
     port: 5000  
     targetPort: 5000
-    name: ui

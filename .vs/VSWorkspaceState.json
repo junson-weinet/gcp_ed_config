@@ -1,11 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\blockchain",
-    "\\blockchain\\webapi",
-    "\\ed_swj\\webapi",
-    "\\ed_swj\\webapi\\mq"
+    "\\otc",
+    "\\otc\\webapi",
+    "\\otc_release",
+    "\\otc_release\\data-mssql",
+    "\\otc_release\\data-redis",
+    "\\otc_release\\webapi",
+    "\\otc_release\\webapi\\conf"
   ],
-  "SelectedNode": "\\blockchain\\webapi\\token-collect-worker.yml",
+  "SelectedNode": "\\otc_release\\data-mssql\\data-mssql-instance.yml",
   "PreviewInSolutionExplorer": false
 }
