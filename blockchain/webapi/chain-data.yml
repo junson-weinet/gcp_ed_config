@@ -32,10 +32,10 @@ spec:
           secretName: token-data-settings
       containers:
         - name: gcs-k8s-data
-          resources:          ##CPU内存限制
-            limits:
-              cpu: 800m
-              memory: 1536Mi
+          # resources:          ##CPU内存限制
+          #   limits:
+          #     cpu: 800m
+          #     memory: 1536Mi
           image: gcr.io/rd-test-64435/chain_data_api:v24.1.17.2
           imagePullPolicy: Always
           volumeMounts:
